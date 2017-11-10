@@ -6,7 +6,7 @@ position = -1;
 N        = length(R);
 n        = length(x);
 for k = 1:N-n+1
-   if R(k:k+n-1) == x
+   if isequal(R(k:k+n-1),x)
       position = k;
       res=1;%08.09.2003
       break
@@ -16,7 +16,7 @@ end
 if k ~= N-n+1
    m = 1;%number of repetitions
    while k+m*n+n-1 <= N
-      if R(k+m*n:k+m*n+n-1) == x
+      if isequal(R(k+m*n:k+m*n+n-1),x)
          m = m+1;
       else
          break

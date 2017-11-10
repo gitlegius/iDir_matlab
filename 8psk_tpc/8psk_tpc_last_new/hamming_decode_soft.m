@@ -135,7 +135,7 @@
 
 
 %%
-function [Z,flag_good]=hamming_decode_soft(R,H,S)
+function [Z,flag_good,num_iter]=hamming_decode_soft(R,H,S)
 flag_view=1;
 flag_good=0;
 [r,N]=size(H);

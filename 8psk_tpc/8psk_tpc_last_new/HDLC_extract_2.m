@@ -39,7 +39,7 @@ while k<=N-8
         
         S=[];
         for kk=1:length(RR)-5
-            if RR(kk:kk+5)==[1 1 1 1 1 0]
+            if isequal(RR(kk:kk+5),[1 1 1 1 1 0])
                 S = [S kk+5];
             end
         end
@@ -60,7 +60,7 @@ while k<=N-8
 %         end
         
         reg = crc_gen (RR);
-        if reg==[1 1 1 1 0 0 0 0 1 0 1 1 1 0 0 0]
+        if isequal(reg,[1 1 1 1 0 0 0 0 1 0 1 1 1 0 0 0])
             ind_good=ind_good+1;
                      
         else

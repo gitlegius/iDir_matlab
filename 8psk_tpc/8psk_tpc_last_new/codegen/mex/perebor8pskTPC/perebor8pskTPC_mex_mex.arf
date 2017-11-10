@@ -1,0 +1,11 @@
+libemlrt.lib
+libcovrt.lib
+libut.lib
+libmwblas.lib
+libmwmathutil.lib
+/export:mexFunction
+/export:emlrtMexFcnProperties
+/export:perebor8pskTPC
+/export:perebor8pskTPC_initialize
+/export:perebor8pskTPC_terminate
+/export:perebor8pskTPC_atexit

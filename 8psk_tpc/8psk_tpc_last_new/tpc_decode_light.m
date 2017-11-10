@@ -1,6 +1,7 @@
-function [flag_decod,bit_scrm,decoded_bits]=tpc_decode(in,c_r)
+function [flag_decod,bit_scrm,decoded_bits,num_iter]=tpc_decode_light(in,c_r)
 
 bit_scrm=[];
+decoded_bits = [];
 switch c_r
     case 1 %'.431' % OK but not cheked
         H = [1 0 1 0 1 1 1 0 1 1 0 0 0 1 1 1 1 1 0 0 1 1 0 1 0 0 1 0 0 0 0;0 1 0 1 0 1 1 1 0 1 1 0 0 0 1 1 1 1 1 0 0 1 1 0 1 0 0 1 0 0 0;0 0 1 0 1 0 1 1 1 0 1 1 0 0 0 1 1 1 1 1 0 0 1 1 0 1 0 0 1 0 0;1 0 1 1 1 0 1 1 0 0 0 1 1 1 1 1 0 0 1 1 0 1 0 0 1 0 0 0 0 1 0;0 1 0 1 1 1 0 1 1 0 0 0 1 1 1 1 1 0 0 1 1 0 1 0 0 1 0 0 0 0 1];
@@ -64,8 +65,7 @@ in=in(1:pack_len);
 
 X=reshape(in,N_plus_1,N_plus_1);
 
-% [X0,flag_decod]=hamming_decode_soft(X,H,S);
-[X0,flag_decod]=hamming_decode_soft_mex(X,H,S);
+[X0,flag_decod,num_iter]=hamming_decode_soft(X,H,S);
 if flag_decod==0
     return;
 end
