@@ -241,7 +241,7 @@ Y(end)=mod(sum(Y(1:end-1)),2);%!!!
 
 function [flag,k]=ismember_arr(a,B)
 flag=0;
-if isempty(B), k=1; return;end
+if isempty(B), k=0; return;end
 for k=1:size(B,1)
     if norm(a-B(k,:))<1e-3
         flag=1;

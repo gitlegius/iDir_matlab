@@ -139,10 +139,10 @@ void perebor8pskTPC(const emlrtStack *sp, const emxArray_creal_T
                     *out_burst_complex_without_UWs, real_T data_symb_len, real_T
                     num_packet_per_burst, const creal_T Star_data[], const
                     int32_T Star_size[2], real_T frame_dec_len, real_T
-                    packet_dec_len, real_T c_r, real_T flag_FDMA, boolean_T
-                    *flag_ok, real_T *ind_good, real_T *ind_bad, real_T
-                    *ind_good_, real_T *ind_bad_, real_T *num_iter, real_T
-                    *num_iter_)
+                    packet_dec_len, real_T c_r, real_T flag_FDMA, real_T
+                    thr_num_good, boolean_T *flag_ok, real_T *ind_good, real_T
+                    *ind_bad, real_T *ind_good_, real_T *ind_bad_, real_T
+                    *num_iter, real_T *num_iter_)
 {
   emxArray_real_T *out_decoder_all;
   int32_T i0;
@@ -170,7 +170,9 @@ void perebor8pskTPC(const emlrtStack *sp, const emxArray_creal_T
   emxArray_creal_T *b_out_burst_complex_without_UWs;
   boolean_T exitg1;
   int32_T i1;
+  real_T b_num_iter;
   real_T flag_decod;
+  real_T b_num_iter_;
   real_T flag_decod_;
   boolean_T guard1 = false;
   int32_T i2;
@@ -280,7 +282,8 @@ void perebor8pskTPC(const emlrtStack *sp, const emxArray_creal_T
     }
 
     st.site = &b_emlrtRSI;
-    tpc_decode_light(&st, r4, c_r, &flag_decod, decoded_bits, num_iter);
+    tpc_decode_light(&st, r4, c_r, &flag_decod, decoded_bits, &b_num_iter);
+    *num_iter = b_num_iter;
     i0 = r3->size[0];
     r3->size[0] = 1 + out_data_soft_now->size[0];
     emxEnsureCapacity(sp, (emxArray__common *)r3, i0, (int32_T)sizeof(real_T),
@@ -292,7 +295,8 @@ void perebor8pskTPC(const emlrtStack *sp, const emxArray_creal_T
     }
 
     st.site = &c_emlrtRSI;
-    tpc_decode_light(&st, r3, c_r, &flag_decod_, decoded_bits_, num_iter_);
+    tpc_decode_light(&st, r3, c_r, &flag_decod_, decoded_bits_, &b_num_iter_);
+    *num_iter_ = b_num_iter_;
     guard1 = false;
     if (flag_FDMA != 0.0) {
       tmp_end_pos_in = (1.0 + (real_T)kk) * packet_dec_len;
@@ -459,8 +463,9 @@ void perebor8pskTPC(const emlrtStack *sp, const emxArray_creal_T
       {
         /*  TEST */
         exitg1 = true;
-      } else if ((1.0 + (real_T)kk > 20.0) && (*ind_bad <= ind_bad_prev) &&
-                 (*ind_bad_ <= ind_bad__prev)) {
+      } else if ((1.0 + (real_T)kk > thr_num_good) && (((*ind_bad <=
+                    ind_bad_prev) && (*ind_bad_ <= ind_bad__prev)) ||
+                  (b_num_iter < 4.0) || (b_num_iter_ < 4.0))) {
         *flag_ok = true;
 
         /*  !!!!!!!!!!! */

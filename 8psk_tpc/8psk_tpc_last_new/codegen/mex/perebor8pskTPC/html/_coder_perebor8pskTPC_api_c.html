@@ -173,7 +173,7 @@
 <a name="161"><font color="#888888 "><i>  161   </i></font></a>  emlrtDestroyArray(&amp;src);
 <a name="162"><font color="#888888 "><i>  162   </i></font></a><b>}</b>
 <a name="163"><font color="#888888 "><i>  163   </i></font></a>
-<a name="164"><font color="#888888 "><i>  164   </i></font></a><font color="#112266"><b>void</b></font> <a name="fcn_perebor8pskTPC_api">perebor8pskTPC_api</a>(<font color="#112266"><b>const</b></font> mxArray * <font color="#112266"><b>const</b></font> prhs[8], <font color="#112266"><b>const</b></font> mxArray *plhs[7])
+<a name="164"><font color="#888888 "><i>  164   </i></font></a><font color="#112266"><b>void</b></font> <a name="fcn_perebor8pskTPC_api">perebor8pskTPC_api</a>(<font color="#112266"><b>const</b></font> mxArray * <font color="#112266"><b>const</b></font> prhs[9], <font color="#112266"><b>const</b></font> mxArray *plhs[7])
 <a name="165"><font color="#888888 "><i>  165   </i></font></a><b>{</b>
 <a name="166"><font color="#888888 "><i>  166   </i></font></a>  emxArray_creal_T *out_burst_complex_without_UWs;
 <a name="167"><font color="#888888 "><i>  167   </i></font></a>  real_T data_symb_len;
@@ -184,52 +184,55 @@
 <a name="172"><font color="#888888 "><i>  172   </i></font></a>  real_T packet_dec_len;
 <a name="173"><font color="#888888 "><i>  173   </i></font></a>  real_T c_r;
 <a name="174"><font color="#888888 "><i>  174   </i></font></a>  real_T flag_FDMA;
-<a name="175"><font color="#888888 "><i>  175   </i></font></a>  real_T num_iter_;
-<a name="176"><font color="#888888 "><i>  176   </i></font></a>  real_T num_iter;
-<a name="177"><font color="#888888 "><i>  177   </i></font></a>  real_T ind_bad_;
-<a name="178"><font color="#888888 "><i>  178   </i></font></a>  real_T ind_good_;
-<a name="179"><font color="#888888 "><i>  179   </i></font></a>  real_T ind_bad;
-<a name="180"><font color="#888888 "><i>  180   </i></font></a>  real_T ind_good;
-<a name="181"><font color="#888888 "><i>  181   </i></font></a>  boolean_T flag_ok;
-<a name="182"><font color="#888888 "><i>  182   </i></font></a>  emlrtStack st = <b>{</b> NULL, NULL, NULL <b>}</b>;
-<a name="183"><font color="#888888 "><i>  183   </i></font></a>
-<a name="184"><font color="#888888 "><i>  184   </i></font></a>  st.tls = <a href="_coder_perebor8pskTPC_mex_c.html#var_emlrtRootTLSGlobal" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRootTLSGlobal');" target="_self"><font color="#1122aa">emlrtRootTLSGlobal</font></a>;
-<a name="185"><font color="#888888 "><i>  185   </i></font></a>  emlrtHeapReferenceStackEnterFcnR2012b(&amp;st);
-<a name="186"><font color="#888888 "><i>  186   </i></font></a>  emxInit_creal_T(&amp;st, &amp;out_burst_complex_without_UWs, 1, &amp;<a href="#var_u_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_u_emlrtRTEI');" target="_self"><font color="#1122aa">u_emlrtRTEI</font></a>, true);
-<a name="187"><font color="#888888 "><i>  187   </i></font></a>
-<a name="188"><font color="#888888 "><i>  188   </i></font></a>  <font color="#117755"><i>/* Marshall function inputs */</i></font>
-<a name="189"><font color="#888888 "><i>  189   </i></font></a>  <a href="#fcn_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallIn');" target="_self"><font color="#1122aa">emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[0]), <font color="#1122ff">&quot;out_burst_complex_without_UWs&quot;</font>,
-<a name="190"><font color="#888888 "><i>  190   </i></font></a>                   out_burst_complex_without_UWs);
-<a name="191"><font color="#888888 "><i>  191   </i></font></a>  data_symb_len = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[1]), <font color="#1122ff">&quot;data_symb_len&quot;</font>);
-<a name="192"><font color="#888888 "><i>  192   </i></font></a>  num_packet_per_burst = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[2]),
-<a name="193"><font color="#888888 "><i>  193   </i></font></a>    <font color="#1122ff">&quot;num_packet_per_burst&quot;</font>);
-<a name="194"><font color="#888888 "><i>  194   </i></font></a>  <a href="#fcn_e_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_e_emlrt_marshallIn');" target="_self"><font color="#1122aa">e_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[3]), <font color="#1122ff">&quot;Star&quot;</font>, Star_data, Star_size);
-<a name="195"><font color="#888888 "><i>  195   </i></font></a>  frame_dec_len = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[4]), <font color="#1122ff">&quot;frame_dec_len&quot;</font>);
-<a name="196"><font color="#888888 "><i>  196   </i></font></a>  packet_dec_len = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[5]),
-<a name="197"><font color="#888888 "><i>  197   </i></font></a>    <font color="#1122ff">&quot;packet_dec_len&quot;</font>);
-<a name="198"><font color="#888888 "><i>  198   </i></font></a>  c_r = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[6]), <font color="#1122ff">&quot;c_r&quot;</font>);
-<a name="199"><font color="#888888 "><i>  199   </i></font></a>  flag_FDMA = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[7]), <font color="#1122ff">&quot;flag_FDMA&quot;</font>);
-<a name="200"><font color="#888888 "><i>  200   </i></font></a>
-<a name="201"><font color="#888888 "><i>  201   </i></font></a>  <font color="#117755"><i>/* Invoke the target function */</i></font>
-<a name="202"><font color="#888888 "><i>  202   </i></font></a>  perebor8pskTPC(&amp;st, out_burst_complex_without_UWs, data_symb_len,
-<a name="203"><font color="#888888 "><i>  203   </i></font></a>                 num_packet_per_burst, Star_data, Star_size, frame_dec_len,
-<a name="204"><font color="#888888 "><i>  204   </i></font></a>                 packet_dec_len, c_r, flag_FDMA, &amp;flag_ok, &amp;ind_good, &amp;ind_bad,
-<a name="205"><font color="#888888 "><i>  205   </i></font></a>                 &amp;ind_good_, &amp;ind_bad_, &amp;num_iter, &amp;num_iter_);
-<a name="206"><font color="#888888 "><i>  206   </i></font></a>
-<a name="207"><font color="#888888 "><i>  207   </i></font></a>  <font color="#117755"><i>/* Marshall function outputs */</i></font>
-<a name="208"><font color="#888888 "><i>  208   </i></font></a>  plhs[0] = <a href="#fcn_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallOut');" target="_self"><font color="#1122aa">emlrt_marshallOut</font></a>(flag_ok);
-<a name="209"><font color="#888888 "><i>  209   </i></font></a>  plhs[1] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(ind_good);
-<a name="210"><font color="#888888 "><i>  210   </i></font></a>  plhs[2] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(ind_bad);
-<a name="211"><font color="#888888 "><i>  211   </i></font></a>  plhs[3] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(ind_good_);
-<a name="212"><font color="#888888 "><i>  212   </i></font></a>  plhs[4] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(ind_bad_);
-<a name="213"><font color="#888888 "><i>  213   </i></font></a>  plhs[5] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(num_iter);
-<a name="214"><font color="#888888 "><i>  214   </i></font></a>  plhs[6] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(num_iter_);
-<a name="215"><font color="#888888 "><i>  215   </i></font></a>  emxFree_creal_T(&amp;out_burst_complex_without_UWs);
-<a name="216"><font color="#888888 "><i>  216   </i></font></a>  emlrtHeapReferenceStackLeaveFcnR2012b(&amp;st);
-<a name="217"><font color="#888888 "><i>  217   </i></font></a><b>}</b>
-<a name="218"><font color="#888888 "><i>  218   </i></font></a>
-<a name="219"><font color="#888888 "><i>  219   </i></font></a><font color="#117755"><i>/* End of code generation (_coder_perebor8pskTPC_api.c) */</i></font>
-<a name="220"><font color="#888888 "><i>  220   </i></font></a></pre>
+<a name="175"><font color="#888888 "><i>  175   </i></font></a>  real_T thr_num_good;
+<a name="176"><font color="#888888 "><i>  176   </i></font></a>  real_T num_iter_;
+<a name="177"><font color="#888888 "><i>  177   </i></font></a>  real_T num_iter;
+<a name="178"><font color="#888888 "><i>  178   </i></font></a>  real_T ind_bad_;
+<a name="179"><font color="#888888 "><i>  179   </i></font></a>  real_T ind_good_;
+<a name="180"><font color="#888888 "><i>  180   </i></font></a>  real_T ind_bad;
+<a name="181"><font color="#888888 "><i>  181   </i></font></a>  real_T ind_good;
+<a name="182"><font color="#888888 "><i>  182   </i></font></a>  boolean_T flag_ok;
+<a name="183"><font color="#888888 "><i>  183   </i></font></a>  emlrtStack st = <b>{</b> NULL, NULL, NULL <b>}</b>;
+<a name="184"><font color="#888888 "><i>  184   </i></font></a>
+<a name="185"><font color="#888888 "><i>  185   </i></font></a>  st.tls = <a href="_coder_perebor8pskTPC_mex_c.html#var_emlrtRootTLSGlobal" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrtRootTLSGlobal');" target="_self"><font color="#1122aa">emlrtRootTLSGlobal</font></a>;
+<a name="186"><font color="#888888 "><i>  186   </i></font></a>  emlrtHeapReferenceStackEnterFcnR2012b(&amp;st);
+<a name="187"><font color="#888888 "><i>  187   </i></font></a>  emxInit_creal_T(&amp;st, &amp;out_burst_complex_without_UWs, 1, &amp;<a href="#var_u_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_u_emlrtRTEI');" target="_self"><font color="#1122aa">u_emlrtRTEI</font></a>, true);
+<a name="188"><font color="#888888 "><i>  188   </i></font></a>
+<a name="189"><font color="#888888 "><i>  189   </i></font></a>  <font color="#117755"><i>/* Marshall function inputs */</i></font>
+<a name="190"><font color="#888888 "><i>  190   </i></font></a>  <a href="#fcn_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallIn');" target="_self"><font color="#1122aa">emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[0]), <font color="#1122ff">&quot;out_burst_complex_without_UWs&quot;</font>,
+<a name="191"><font color="#888888 "><i>  191   </i></font></a>                   out_burst_complex_without_UWs);
+<a name="192"><font color="#888888 "><i>  192   </i></font></a>  data_symb_len = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[1]), <font color="#1122ff">&quot;data_symb_len&quot;</font>);
+<a name="193"><font color="#888888 "><i>  193   </i></font></a>  num_packet_per_burst = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[2]),
+<a name="194"><font color="#888888 "><i>  194   </i></font></a>    <font color="#1122ff">&quot;num_packet_per_burst&quot;</font>);
+<a name="195"><font color="#888888 "><i>  195   </i></font></a>  <a href="#fcn_e_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_e_emlrt_marshallIn');" target="_self"><font color="#1122aa">e_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[3]), <font color="#1122ff">&quot;Star&quot;</font>, Star_data, Star_size);
+<a name="196"><font color="#888888 "><i>  196   </i></font></a>  frame_dec_len = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[4]), <font color="#1122ff">&quot;frame_dec_len&quot;</font>);
+<a name="197"><font color="#888888 "><i>  197   </i></font></a>  packet_dec_len = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[5]),
+<a name="198"><font color="#888888 "><i>  198   </i></font></a>    <font color="#1122ff">&quot;packet_dec_len&quot;</font>);
+<a name="199"><font color="#888888 "><i>  199   </i></font></a>  c_r = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[6]), <font color="#1122ff">&quot;c_r&quot;</font>);
+<a name="200"><font color="#888888 "><i>  200   </i></font></a>  flag_FDMA = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[7]), <font color="#1122ff">&quot;flag_FDMA&quot;</font>);
+<a name="201"><font color="#888888 "><i>  201   </i></font></a>  thr_num_good = <a href="#fcn_c_emlrt_marshallIn" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_c_emlrt_marshallIn');" target="_self"><font color="#1122aa">c_emlrt_marshallIn</font></a>(&amp;st, emlrtAliasP(prhs[8]), <font color="#1122ff">&quot;thr_num_good&quot;</font>);
+<a name="202"><font color="#888888 "><i>  202   </i></font></a>
+<a name="203"><font color="#888888 "><i>  203   </i></font></a>  <font color="#117755"><i>/* Invoke the target function */</i></font>
+<a name="204"><font color="#888888 "><i>  204   </i></font></a>  perebor8pskTPC(&amp;st, out_burst_complex_without_UWs, data_symb_len,
+<a name="205"><font color="#888888 "><i>  205   </i></font></a>                 num_packet_per_burst, Star_data, Star_size, frame_dec_len,
+<a name="206"><font color="#888888 "><i>  206   </i></font></a>                 packet_dec_len, c_r, flag_FDMA, thr_num_good, &amp;flag_ok,
+<a name="207"><font color="#888888 "><i>  207   </i></font></a>                 &amp;ind_good, &amp;ind_bad, &amp;ind_good_, &amp;ind_bad_, &amp;num_iter,
+<a name="208"><font color="#888888 "><i>  208   </i></font></a>                 &amp;num_iter_);
+<a name="209"><font color="#888888 "><i>  209   </i></font></a>
+<a name="210"><font color="#888888 "><i>  210   </i></font></a>  <font color="#117755"><i>/* Marshall function outputs */</i></font>
+<a name="211"><font color="#888888 "><i>  211   </i></font></a>  plhs[0] = <a href="#fcn_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emlrt_marshallOut');" target="_self"><font color="#1122aa">emlrt_marshallOut</font></a>(flag_ok);
+<a name="212"><font color="#888888 "><i>  212   </i></font></a>  plhs[1] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(ind_good);
+<a name="213"><font color="#888888 "><i>  213   </i></font></a>  plhs[2] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(ind_bad);
+<a name="214"><font color="#888888 "><i>  214   </i></font></a>  plhs[3] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(ind_good_);
+<a name="215"><font color="#888888 "><i>  215   </i></font></a>  plhs[4] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(ind_bad_);
+<a name="216"><font color="#888888 "><i>  216   </i></font></a>  plhs[5] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(num_iter);
+<a name="217"><font color="#888888 "><i>  217   </i></font></a>  plhs[6] = <a href="#fcn_b_emlrt_marshallOut" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emlrt_marshallOut');" target="_self"><font color="#1122aa">b_emlrt_marshallOut</font></a>(num_iter_);
+<a name="218"><font color="#888888 "><i>  218   </i></font></a>  emxFree_creal_T(&amp;out_burst_complex_without_UWs);
+<a name="219"><font color="#888888 "><i>  219   </i></font></a>  emlrtHeapReferenceStackLeaveFcnR2012b(&amp;st);
+<a name="220"><font color="#888888 "><i>  220   </i></font></a><b>}</b>
+<a name="221"><font color="#888888 "><i>  221   </i></font></a>
+<a name="222"><font color="#888888 "><i>  222   </i></font></a><font color="#117755"><i>/* End of code generation (_coder_perebor8pskTPC_api.c) */</i></font>
+<a name="223"><font color="#888888 "><i>  223   </i></font></a></pre>
 </td></tr></table>
 </p>
 </body>

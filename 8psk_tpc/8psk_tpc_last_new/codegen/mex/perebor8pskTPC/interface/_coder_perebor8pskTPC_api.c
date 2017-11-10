@@ -161,7 +161,7 @@ static void i_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtDestroyArray(&src);
 }
 
-void perebor8pskTPC_api(const mxArray * const prhs[8], const mxArray *plhs[7])
+void perebor8pskTPC_api(const mxArray * const prhs[9], const mxArray *plhs[7])
 {
   emxArray_creal_T *out_burst_complex_without_UWs;
   real_T data_symb_len;
@@ -172,6 +172,7 @@ void perebor8pskTPC_api(const mxArray * const prhs[8], const mxArray *plhs[7])
   real_T packet_dec_len;
   real_T c_r;
   real_T flag_FDMA;
+  real_T thr_num_good;
   real_T num_iter_;
   real_T num_iter;
   real_T ind_bad_;
@@ -197,12 +198,14 @@ void perebor8pskTPC_api(const mxArray * const prhs[8], const mxArray *plhs[7])
     "packet_dec_len");
   c_r = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[6]), "c_r");
   flag_FDMA = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[7]), "flag_FDMA");
+  thr_num_good = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[8]), "thr_num_good");
 
   /* Invoke the target function */
   perebor8pskTPC(&st, out_burst_complex_without_UWs, data_symb_len,
                  num_packet_per_burst, Star_data, Star_size, frame_dec_len,
-                 packet_dec_len, c_r, flag_FDMA, &flag_ok, &ind_good, &ind_bad,
-                 &ind_good_, &ind_bad_, &num_iter, &num_iter_);
+                 packet_dec_len, c_r, flag_FDMA, thr_num_good, &flag_ok,
+                 &ind_good, &ind_bad, &ind_good_, &ind_bad_, &num_iter,
+                 &num_iter_);
 
   /* Marshall function outputs */
   plhs[0] = emlrt_marshallOut(flag_ok);

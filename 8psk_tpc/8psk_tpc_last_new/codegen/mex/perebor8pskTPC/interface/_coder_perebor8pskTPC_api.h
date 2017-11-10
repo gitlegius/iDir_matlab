@@ -21,7 +21,7 @@
 #include "perebor8pskTPC_types.h"
 
 /* Function Declarations */
-extern void perebor8pskTPC_api(const mxArray * const prhs[8], const mxArray
+extern void perebor8pskTPC_api(const mxArray * const prhs[9], const mxArray
   *plhs[7]);
 
 #endif

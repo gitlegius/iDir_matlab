@@ -1,4 +1,4 @@
-function [flag_ok,ind_good,ind_bad,ind_good_,ind_bad_,num_iter,num_iter_] = perebor8pskTPC(out_burst_complex_without_UWs,data_symb_len,num_packet_per_burst,Star,frame_dec_len,packet_dec_len,c_r,flag_FDMA)
+function [flag_ok,ind_good,ind_bad,ind_good_,ind_bad_,num_iter,num_iter_] = perebor8pskTPC(out_burst_complex_without_UWs,data_symb_len,num_packet_per_burst,Star,frame_dec_len,packet_dec_len,c_r,flag_FDMA,thr_num_good)
 
 %%
 ind_good = 0;ind_bad = ind_good; 
@@ -35,8 +35,7 @@ for kk = 1:num_packet_per_burst
         
         if (ind_bad>ind_bad_prev*1.2)&&(ind_bad_>ind_bad__prev*1.2) % TEST
             return;
-        elseif  kk > 20&&(ind_bad<=ind_bad_prev)&&(ind_bad_<=ind_bad__prev)
-            
+        elseif  kk > thr_num_good&&(((ind_bad<=ind_bad_prev)&&(ind_bad_<=ind_bad__prev))||(num_iter<4||num_iter_<4))
             flag_ok = true; % !!!!!!!!!!!
             return;
             

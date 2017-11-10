@@ -3108,7 +3108,7 @@ static void c_info_helper(const mxArray **info)
   emlrtAddField(*info, emlrt_marshallOut(
     "[E]D:/projects_matlab/1/iDirect/test_corr/iDir_matlab/8psk_tpc/8psk_tpc_last_new/hamming_decode_soft.m"),
                 "resolved", 153);
-  emlrtAddField(*info, b_emlrt_marshallOut(1510307359U), "fileTimeLo", 153);
+  emlrtAddField(*info, b_emlrt_marshallOut(1510319872U), "fileTimeLo", 153);
   emlrtAddField(*info, b_emlrt_marshallOut(0U), "fileTimeHi", 153);
   emlrtAddField(*info, b_emlrt_marshallOut(0U), "mFileTimeLo", 153);
   emlrtAddField(*info, b_emlrt_marshallOut(0U), "mFileTimeHi", 153);
@@ -6543,9 +6543,9 @@ mxArray *emlrtMexFcnProperties()
   mxArray *xResult = mxCreateStructMatrix(1,1,4,mexProperties);
   mxArray *xEntryPoints = mxCreateStructMatrix(1,1,4,epProperties);
   mxArray *xInputs = NULL;
-  xInputs = mxCreateLogicalMatrix(1, 8);
+  xInputs = mxCreateLogicalMatrix(1, 9);
   mxSetFieldByNumber(xEntryPoints, 0, 0, mxCreateString("perebor8pskTPC"));
-  mxSetFieldByNumber(xEntryPoints, 0, 1, mxCreateDoubleScalar(8));
+  mxSetFieldByNumber(xEntryPoints, 0, 1, mxCreateDoubleScalar(9));
   mxSetFieldByNumber(xEntryPoints, 0, 2, mxCreateDoubleScalar(7));
   mxSetFieldByNumber(xEntryPoints, 0, 3, xInputs);
   mxSetFieldByNumber(xResult, 0, 0, mxCreateString("8.4.0.150421 (R2014b)"));

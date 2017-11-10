@@ -22,7 +22,7 @@ void *emlrtRootTLSGlobal = NULL;
 static void perebor8pskTPC_mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 {
   const mxArray *outputs[7];
-  const mxArray *inputs[8];
+  const mxArray *inputs[9];
   int n = 0;
   int nOutputs = (nlhs < 1 ? 1 : nlhs);
   int nInputs = nrhs;
@@ -31,8 +31,8 @@ static void perebor8pskTPC_mexFunction(int nlhs, mxArray *plhs[], int nrhs, cons
   perebor8pskTPC_initialize(&emlrtContextGlobal);
   st.tls = emlrtRootTLSGlobal;
   /* Check for proper number of arguments. */
-  if (nrhs != 8) {
-    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, mxINT32_CLASS, 8, mxCHAR_CLASS, 14, "perebor8pskTPC");
+  if (nrhs != 9) {
+    emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:WrongNumberOfInputs", 5, mxINT32_CLASS, 9, mxCHAR_CLASS, 14, "perebor8pskTPC");
   } else if (nlhs > 7) {
     emlrtErrMsgIdAndTxt(&st, "EMLRT:runTime:TooManyOutputArguments", 3, mxCHAR_CLASS, 14, "perebor8pskTPC");
   }
