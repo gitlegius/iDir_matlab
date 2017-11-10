@@ -1,7 +1,14 @@
 
 clear;
 fclose all;
-
+%% lof out
+log_dir = 'out_log';
+if ~isdir(log_dir)
+    mkdir(log_dir);
+end
+path_name_log_str = [log_dir '\8psk_tpc_perebor_test_log.txt'];
+delete(path_name_log_str);
+%%
 load out_burst_complex_test_8psk;
 
 % out_burst_complex
@@ -38,7 +45,7 @@ tic
 % No flags
 % flag_decod_ = 1; flag_decod = 1sign_tmp = -1 ;k = 2; ind_perm = 13407
 
-parfor ind_perm=1001:2000%40320
+parfor ind_perm=1:40320%40320
 % for ind_perm=13407%40320
 %     disp(ind_perm)
     
@@ -126,6 +133,7 @@ parfor ind_perm=1001:2000%40320
                                     '; ind_bad = ' int2str(ind_bad) '; ind_good = ' int2str(ind_good)...
                                     '; ind_bad_ = ' int2str(ind_bad_) '; ind_good_ = ' int2str(ind_good_)];
                                 fprintf(fid_log,'%s\r\n',log_str);
+                                
                                 disp(log_str);
 
                             
