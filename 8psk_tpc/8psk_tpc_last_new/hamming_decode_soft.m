@@ -136,7 +136,7 @@
 
 %%
 function [Z,flag_good,num_iter]=hamming_decode_soft(R,H,S)
-flag_view=1;
+flag_view=0;
 flag_good=0;
 [r,N]=size(H);
 ALPHA=[0   0.2 0.3 0.5 0.7 0.9 1 1 1 1 1 1 1 1 ones(1,10)];
@@ -174,7 +174,7 @@ for num_iter=1:10
     end
     if sum(s1)==0 && sum(s2)==0
         flag_good=1;
-        disp(num_iter)
+%         disp(num_iter)
         break
     end
     
@@ -241,8 +241,7 @@ Y(end)=mod(sum(Y(1:end-1)),2);%!!!
 
 function [flag,k]=ismember_arr(a,B)
 flag=0;
-k = 0;
-if isempty(B), return;end
+if isempty(B), k=1; return;end
 for k=1:size(B,1)
     if norm(a-B(k,:))<1e-3
         flag=1;

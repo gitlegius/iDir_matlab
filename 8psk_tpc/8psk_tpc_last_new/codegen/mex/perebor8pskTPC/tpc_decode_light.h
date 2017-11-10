@@ -21,7 +21,6 @@
 #include "perebor8pskTPC_types.h"
 
 /* Function Declarations */
-extern void eml_assert_valid_size_arg(const emlrtStack *sp, real_T varargin_1);
 extern void tpc_decode_light(const emlrtStack *sp, emxArray_real_T *in, real_T
   c_r, real_T *flag_decod, emxArray_real_T *decoded_bits, real_T *num_iter);
 

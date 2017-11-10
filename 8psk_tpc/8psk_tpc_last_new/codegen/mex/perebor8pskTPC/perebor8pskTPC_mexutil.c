@@ -11,16 +11,6 @@
 #include "perebor8pskTPC_mexutil.h"
 
 /* Function Definitions */
-const mxArray *b_emlrt_marshallOut(const real_T u)
-{
-  const mxArray *y;
-  const mxArray *m11;
-  y = NULL;
-  m11 = emlrtCreateDoubleScalar(u);
-  emlrtAssign(&y, m11);
-  return y;
-}
-
 void b_error(const emlrtStack *sp, const mxArray *b, emlrtMCInfo *location)
 {
   const mxArray *pArray;
@@ -39,9 +29,9 @@ const mxArray *message(const emlrtStack *sp, const mxArray *b, emlrtMCInfo
   *location)
 {
   const mxArray *pArray;
-  const mxArray *m13;
+  const mxArray *m12;
   pArray = b;
-  return emlrtCallMATLABR2012b(sp, 1, &m13, 1, &pArray, "message", true,
+  return emlrtCallMATLABR2012b(sp, 1, &m12, 1, &pArray, "message", true,
     location);
 }
 

@@ -13,7 +13,7 @@
 #include "perebor8pskTPC_emxutil.h"
 
 /* Variable Definitions */
-static emlrtRTEInfo q_emlrtRTEI = { 1, 14, "power",
+static emlrtRTEInfo p_emlrtRTEI = { 1, 14, "power",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\ops\\power.m" };
 
 /* Function Definitions */
@@ -25,7 +25,7 @@ void b_power(const emlrtStack *sp, const real_T a_data[], const int32_T a_size[2
   int32_T loop_ub;
   int32_T i43;
   emlrtHeapReferenceStackEnterFcnR2012b(sp);
-  emxInit_real_T(sp, &r10, 2, &q_emlrtRTEI, true);
+  emxInit_real_T(sp, &r10, 2, &p_emlrtRTEI, true);
   b_a_data.data = (real_T *)a_data;
   b_a_data.size = (int32_T *)a_size;
   b_a_data.allocatedSize = -1;

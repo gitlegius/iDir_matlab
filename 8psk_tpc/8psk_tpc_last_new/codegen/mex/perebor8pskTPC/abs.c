@@ -33,14 +33,14 @@ void b_abs(const emlrtStack *sp, const emxArray_creal_T *x, emxArray_real_T *y)
 void c_abs(const real_T x_data[], const int32_T x_size[2], real_T y_data[],
            int32_T y_size[2])
 {
-  uint8_T uv1[2];
+  uint8_T uv2[2];
   int32_T k;
   for (k = 0; k < 2; k++) {
-    uv1[k] = (uint8_T)x_size[k];
+    uv2[k] = (uint8_T)x_size[k];
   }
 
   y_size[0] = 1;
-  y_size[1] = uv1[1];
+  y_size[1] = uv2[1];
   for (k = 0; k < x_size[1]; k++) {
     y_data[k] = muDoubleScalarAbs(x_data[k]);
   }

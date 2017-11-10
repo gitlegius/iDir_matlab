@@ -16,22 +16,22 @@ static emlrtRTEInfo j_emlrtRTEI = { 1, 1, "scalexpAlloc",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\coder\\coder\\+coder\\+internal\\scalexpAlloc.p"
 };
 
-static emlrtRTEInfo r_emlrtRTEI = { 1, 14, "mod",
+static emlrtRTEInfo q_emlrtRTEI = { 1, 14, "mod",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\elfun\\mod.m" };
 
 /* Function Definitions */
 void b_eml_scalexp_alloc(const emlrtStack *sp, const emxArray_real_T *varargin_1,
   emxArray_real_T *z)
 {
-  uint32_T uv0[2];
+  uint32_T uv1[2];
   int32_T i42;
   for (i42 = 0; i42 < 2; i42++) {
-    uv0[i42] = (uint32_T)varargin_1->size[i42];
+    uv1[i42] = (uint32_T)varargin_1->size[i42];
   }
 
   i42 = z->size[0] * z->size[1];
   z->size[0] = 1;
-  z->size[1] = (int32_T)uv0[1];
+  z->size[1] = (int32_T)uv1[1];
   emxEnsureCapacity(sp, (emxArray__common *)z, i42, (int32_T)sizeof(real_T),
                     &j_emlrtRTEI);
 }
@@ -55,7 +55,7 @@ void c_mod(const emlrtStack *sp, const real_T x_data[], const int32_T x_size[1],
   int32_T loop_ub;
   int32_T i44;
   emlrtHeapReferenceStackEnterFcnR2012b(sp);
-  b_emxInit_real_T(sp, &r11, 1, &r_emlrtRTEI, true);
+  b_emxInit_real_T(sp, &r11, 1, &q_emlrtRTEI, true);
   b_x_data.data = (real_T *)x_data;
   b_x_data.size = (int32_T *)x_size;
   b_x_data.allocatedSize = -1;

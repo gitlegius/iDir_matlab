@@ -15,7 +15,6 @@
 #include "hamming_decode_soft.h"
 #include "error.h"
 #include "perebor8pskTPC_mexutil.h"
-#include "perebor8pskTPC_data.h"
 
 /* Variable Definitions */
 static emlrtRSInfo eb_emlrtRSI = { 73, "tpc_decode_light",
@@ -34,6 +33,30 @@ static emlrtRSInfo hb_emlrtRSI = { 49, "tpc_decode_light",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\tpc_decode_light.m"
 };
 
+static emlrtRSInfo ib_emlrtRSI = { 33, "reshape",
+  "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\elmat\\reshape.m"
+};
+
+static emlrtRSInfo jb_emlrtRSI = { 47, "reshape",
+  "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\elmat\\reshape.m"
+};
+
+static emlrtRSInfo kb_emlrtRSI = { 54, "reshape",
+  "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\elmat\\reshape.m"
+};
+
+static emlrtRSInfo lb_emlrtRSI = { 69, "reshape",
+  "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\elmat\\reshape.m"
+};
+
+static emlrtMCInfo m_emlrtMCI = { 53, 5, "reshape",
+  "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\elmat\\reshape.m"
+};
+
+static emlrtMCInfo n_emlrtMCI = { 52, 15, "reshape",
+  "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\elmat\\reshape.m"
+};
+
 static emlrtMCInfo o_emlrtMCI = { 51, 13, "eml_assert_valid_size_arg",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\eml\\eml_assert_valid_size_arg.m"
 };
@@ -44,6 +67,10 @@ static emlrtMCInfo p_emlrtMCI = { 50, 23, "eml_assert_valid_size_arg",
 
 static emlrtRTEInfo k_emlrtRTEI = { 1, 54, "tpc_decode_light",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\tpc_decode_light.m"
+};
+
+static emlrtRTEInfo l_emlrtRTEI = { 51, 1, "reshape",
+  "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\elmat\\reshape.m"
 };
 
 static emlrtRTEInfo m_emlrtRTEI = { 66, 1, "tpc_decode_light",
@@ -70,32 +97,79 @@ static emlrtBCInfo cb_emlrtBCI = { -1, -1, 73, 29, "X0", "tpc_decode_light",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\tpc_decode_light.m",
   0 };
 
-static emlrtRSInfo wd_emlrtRSI = { 50, "eml_assert_valid_size_arg",
+static emlrtRSInfo td_emlrtRSI = { 50, "eml_assert_valid_size_arg",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\eml\\eml_assert_valid_size_arg.m"
 };
 
-static emlrtRSInfo me_emlrtRSI = { 51, "eml_assert_valid_size_arg",
+static emlrtRSInfo vd_emlrtRSI = { 52, "reshape",
+  "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\elmat\\reshape.m"
+};
+
+static emlrtRSInfo fe_emlrtRSI = { 53, "reshape",
+  "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\elmat\\reshape.m"
+};
+
+static emlrtRSInfo ke_emlrtRSI = { 51, "eml_assert_valid_size_arg",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\eml\\eml_assert_valid_size_arg.m"
 };
 
 /* Function Declarations */
 static const mxArray *c_message(const emlrtStack *sp, const mxArray *b, const
   mxArray *c, const mxArray *d, emlrtMCInfo *location);
+static int32_T div_nzp_s32_floor(int32_T numerator, int32_T denominator);
+static void eml_assert_valid_size_arg(const emlrtStack *sp, real_T varargin_1);
 
 /* Function Definitions */
 static const mxArray *c_message(const emlrtStack *sp, const mxArray *b, const
   mxArray *c, const mxArray *d, emlrtMCInfo *location)
 {
   const mxArray *pArrays[3];
-  const mxArray *m15;
+  const mxArray *m14;
   pArrays[0] = b;
   pArrays[1] = c;
   pArrays[2] = d;
-  return emlrtCallMATLABR2012b(sp, 1, &m15, 3, pArrays, "message", true,
+  return emlrtCallMATLABR2012b(sp, 1, &m14, 3, pArrays, "message", true,
     location);
 }
 
-void eml_assert_valid_size_arg(const emlrtStack *sp, real_T varargin_1)
+static int32_T div_nzp_s32_floor(int32_T numerator, int32_T denominator)
+{
+  int32_T quotient;
+  uint32_T absNumerator;
+  uint32_T absDenominator;
+  boolean_T quotientNeedsNegation;
+  uint32_T tempAbsQuotient;
+  if (numerator >= 0) {
+    absNumerator = (uint32_T)numerator;
+  } else {
+    absNumerator = (uint32_T)-numerator;
+  }
+
+  if (denominator >= 0) {
+    absDenominator = (uint32_T)denominator;
+  } else {
+    absDenominator = (uint32_T)-denominator;
+  }
+
+  quotientNeedsNegation = ((numerator < 0) != (denominator < 0));
+  tempAbsQuotient = absNumerator / absDenominator;
+  if (quotientNeedsNegation) {
+    absNumerator %= absDenominator;
+    if (absNumerator > 0U) {
+      tempAbsQuotient++;
+    }
+  }
+
+  if (quotientNeedsNegation) {
+    quotient = -(int32_T)tempAbsQuotient;
+  } else {
+    quotient = (int32_T)tempAbsQuotient;
+  }
+
+  return quotient;
+}
+
+static void eml_assert_valid_size_arg(const emlrtStack *sp, real_T varargin_1)
 {
   boolean_T b_varargin_1;
   boolean_T guard1 = false;
@@ -164,8 +238,8 @@ void eml_assert_valid_size_arg(const emlrtStack *sp, real_T varargin_1)
     m6 = emlrtCreateNumericMatrix(1, 1, mxINT32_CLASS, mxREAL);
     *(int32_T *)mxGetData(m6) = MAX_int32_T;
     emlrtAssign(&c_y, m6);
-    st.site = &wd_emlrtRSI;
-    b_st.site = &me_emlrtRSI;
+    st.site = &td_emlrtRSI;
+    b_st.site = &ke_emlrtRSI;
     b_error(&st, c_message(&b_st, y, b_y, c_y, &o_emlrtMCI), &p_emlrtMCI);
   }
 }
@@ -304,7 +378,6 @@ void tpc_decode_light(const emlrtStack *sp, emxArray_real_T *in, real_T c_r,
     1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1 };
 
   emxArray_real_T *b_in;
-  int32_T i38;
   int32_T i;
   emxArray_real_T *X;
   const mxArray *y;
@@ -324,7 +397,6 @@ void tpc_decode_light(const emlrtStack *sp, emxArray_real_T *in, real_T c_r,
   const mxArray *c_y;
   static const int32_T iv18[2] = { 1, 40 };
 
-  emxArray_real_T *b_X0;
   emlrtStack st;
   emlrtStack b_st;
   emlrtStack c_st;
@@ -470,8 +542,8 @@ void tpc_decode_light(const emlrtStack *sp, emxArray_real_T *in, real_T c_r,
   /*  S=[];x0=zeros(1,N);for n=1:N, x=x0;x(n)=1-x(n);syndrome=mod(x(1:N)*H',2);S=[S;syndrome];end */
   /*  N_plus_1 = N+1; */
   i37 = in->size[0];
-  i38 = N_plus_1 * N_plus_1;
-  i = emlrtDynamicBoundsCheckFastR2012b(i38, 1, i37, &ab_emlrtBCI, sp);
+  i = N_plus_1 * N_plus_1;
+  i = emlrtDynamicBoundsCheckFastR2012b(i, 1, i37, &ab_emlrtBCI, sp);
   emlrtVectorVectorIndexCheckR2012b(in->size[0], 1, 1, i, &q_emlrtECI, sp);
   i37 = b_in->size[0];
   b_in->size[0] = i;
@@ -516,7 +588,7 @@ void tpc_decode_light(const emlrtStack *sp, emxArray_real_T *in, real_T c_r,
     emlrtInitCharArrayR2013a(&st, 40, m4, cv16);
     emlrtAssign(&y, m4);
     b_st.site = &vd_emlrtRSI;
-    d_st.site = &he_emlrtRSI;
+    d_st.site = &fe_emlrtRSI;
     b_error(&b_st, message(&d_st, y, &m_emlrtMCI), &n_emlrtMCI);
   }
 
@@ -565,31 +637,15 @@ void tpc_decode_light(const emlrtStack *sp, emxArray_real_T *in, real_T c_r,
       emlrtInitCharArrayR2013a(&st, 40, m4, cv16);
       emlrtAssign(&c_y, m4);
       b_st.site = &vd_emlrtRSI;
-      d_st.site = &he_emlrtRSI;
+      d_st.site = &fe_emlrtRSI;
       b_error(&b_st, message(&d_st, c_y, &m_emlrtMCI), &n_emlrtMCI);
     }
 
     b_st.site = &kb_emlrtRSI;
-    i = 0;
-    emxInit_real_T(&st, &b_X0, 2, &k_emlrtRTEI, true);
-    while (i + 1 <= N_plus_1) {
-      i37 = b_X0->size[0] * b_X0->size[1];
-      b_X0->size[0] = a;
-      b_X0->size[1] = b;
-      emxEnsureCapacity(&st, (emxArray__common *)b_X0, i37, (int32_T)sizeof
-                        (real_T), &k_emlrtRTEI);
-      for (i37 = 0; i37 < b; i37++) {
-        for (i38 = 0; i38 < a; i38++) {
-          b_X0->data[i38 + b_X0->size[0] * i37] = X0->data[i38 + X0->size[0] *
-            i37];
-        }
-      }
-
-      b_y->data[i] = b_X0->data[i];
-      i++;
+    for (i = 0; i + 1 <= N_plus_1; i++) {
+      b_y->data[i] = X0->data[i % a + X0->size[0] * div_nzp_s32_floor(i, a)];
     }
 
-    emxFree_real_T(&b_X0);
     i37 = decoded_bits->size[0] * decoded_bits->size[1];
     decoded_bits->size[0] = 1;
     decoded_bits->size[1] = b_y->size[1];

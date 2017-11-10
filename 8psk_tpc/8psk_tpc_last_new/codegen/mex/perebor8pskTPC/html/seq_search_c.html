@@ -26,7 +26,7 @@
 <a name="14"><font color="#888888 "><i>   14   </i></font></a><font color="#992211">#</font><font color="#992211"><b>include</b></font> <font color="#992211">&quot;perebor8pskTPC_data.h&quot;</font>
 <a name="15"><font color="#888888 "><i>   15   </i></font></a>
 <a name="16"><font color="#888888 "><i>   16   </i></font></a><font color="#117755"><i>/* Variable Definitions */</i></font>
-<a name="17"><font color="#888888 "><i>   17   </i></font></a><font color="#112266"><b>static</b></font> emlrtRTEInfo <a name="var_u_emlrtRTEI">u_emlrtRTEI</a> = <b>{</b> 1, 28, <font color="#1122ff">&quot;seq_search&quot;</font>,
+<a name="17"><font color="#888888 "><i>   17   </i></font></a><font color="#112266"><b>static</b></font> emlrtRTEInfo <a name="var_t_emlrtRTEI">t_emlrtRTEI</a> = <b>{</b> 1, 28, <font color="#1122ff">&quot;seq_search&quot;</font>,
 <a name="18"><font color="#888888 "><i>   18   </i></font></a>  <font color="#1122ff">&quot;D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\seq_search.m&quot;</font>
 <a name="19"><font color="#888888 "><i>   19   </i></font></a><b>}</b>;
 <a name="20"><font color="#888888 "><i>   20   </i></font></a>
@@ -63,7 +63,7 @@
 <a name="51"><font color="#888888 "><i>   51   </i></font></a>  *position = -1.0;
 <a name="52"><font color="#888888 "><i>   52   </i></font></a>  k = 1;
 <a name="53"><font color="#888888 "><i>   53   </i></font></a>  b_k = 1;
-<a name="54"><font color="#888888 "><i>   54   </i></font></a>  <a href="perebor8pskTPC_emxutil_c.html#fcn_emxInit_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxInit_real_T');" target="_self"><font color="#1122aa">emxInit_real_T</font></a>(sp, &amp;b_R, 2, &amp;<a href="#var_u_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_u_emlrtRTEI');" target="_self"><font color="#1122aa">u_emlrtRTEI</font></a>, true);
+<a name="54"><font color="#888888 "><i>   54   </i></font></a>  <a href="perebor8pskTPC_emxutil_c.html#fcn_emxInit_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxInit_real_T');" target="_self"><font color="#1122aa">emxInit_real_T</font></a>(sp, &amp;b_R, 2, &amp;<a href="#var_t_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_t_emlrtRTEI');" target="_self"><font color="#1122aa">t_emlrtRTEI</font></a>, true);
 <a name="55"><font color="#888888 "><i>   55   </i></font></a>  exitg2 = false;
 <a name="56"><font color="#888888 "><i>   56   </i></font></a>  <font color="#112266"><b>while</b></font> ((!exitg2) &amp;&amp; (b_k - 1 &lt;= R-&gt;size[1] - 8)) <b>{</b>
 <a name="57"><font color="#888888 "><i>   57   </i></font></a>    k = b_k;
@@ -82,7 +82,7 @@
 <a name="70"><font color="#888888 "><i>   70   </i></font></a>    b_R-&gt;size[0] = 1;
 <a name="71"><font color="#888888 "><i>   71   </i></font></a>    b_R-&gt;size[1] = i46 - i45;
 <a name="72"><font color="#888888 "><i>   72   </i></font></a>    <a href="perebor8pskTPC_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="_self"><font color="#1122aa">emxEnsureCapacity</font></a>(sp, (<a href="perebor8pskTPC_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="_self"><font color="#1122aa">emxArray__common</font></a> *)b_R, loop_ub, (int32_T)<font color="#112266"><b>sizeof</b></font>
-<a name="73"><font color="#888888 "><i>   73   </i></font></a>                      (real_T), &amp;<a href="#var_u_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_u_emlrtRTEI');" target="_self"><font color="#1122aa">u_emlrtRTEI</font></a>);
+<a name="73"><font color="#888888 "><i>   73   </i></font></a>                      (real_T), &amp;<a href="#var_t_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_t_emlrtRTEI');" target="_self"><font color="#1122aa">t_emlrtRTEI</font></a>);
 <a name="74"><font color="#888888 "><i>   74   </i></font></a>    loop_ub = i46 - i45;
 <a name="75"><font color="#888888 "><i>   75   </i></font></a>    <font color="#112266"><b>for</b></font> (i46 = 0; i46 &lt; loop_ub; i46++) <b>{</b>
 <a name="76"><font color="#888888 "><i>   76   </i></font></a>      b_R-&gt;data[b_R-&gt;size[0] * i46] = R-&gt;data[i45 + i46];
@@ -105,7 +105,7 @@
 <a name="93"><font color="#888888 "><i>   93   </i></font></a>    *res = 1.0;
 <a name="94"><font color="#888888 "><i>   94   </i></font></a>
 <a name="95"><font color="#888888 "><i>   95   </i></font></a>    <font color="#117755"><i>/* number of repetitions */</i></font>
-<a name="96"><font color="#888888 "><i>   96   </i></font></a>    <a href="perebor8pskTPC_emxutil_c.html#fcn_emxInit_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxInit_real_T');" target="_self"><font color="#1122aa">emxInit_real_T</font></a>(sp, &amp;c_R, 2, &amp;<a href="#var_u_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_u_emlrtRTEI');" target="_self"><font color="#1122aa">u_emlrtRTEI</font></a>, true);
+<a name="96"><font color="#888888 "><i>   96   </i></font></a>    <a href="perebor8pskTPC_emxutil_c.html#fcn_emxInit_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxInit_real_T');" target="_self"><font color="#1122aa">emxInit_real_T</font></a>(sp, &amp;c_R, 2, &amp;<a href="#var_t_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_t_emlrtRTEI');" target="_self"><font color="#1122aa">t_emlrtRTEI</font></a>, true);
 <a name="97"><font color="#888888 "><i>   97   </i></font></a>    exitg1 = false;
 <a name="98"><font color="#888888 "><i>   98   </i></font></a>    <font color="#112266"><b>while</b></font> ((!exitg1) &amp;&amp; ((((real_T)k + *res * 8.0) + 8.0) - 1.0 &lt;= R-&gt;size[1]))
 <a name="99"><font color="#888888 "><i>   99   </i></font></a>    <b>{</b>
@@ -129,7 +129,7 @@
 <a name="117"><font color="#888888 "><i>  117   </i></font></a>      c_R-&gt;size[0] = 1;
 <a name="118"><font color="#888888 "><i>  118   </i></font></a>      c_R-&gt;size[1] = i46 - i45;
 <a name="119"><font color="#888888 "><i>  119   </i></font></a>      <a href="perebor8pskTPC_emxutil_c.html#fcn_emxEnsureCapacity" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxEnsureCapacity');" target="_self"><font color="#1122aa">emxEnsureCapacity</font></a>(sp, (<a href="perebor8pskTPC_types_h.html#type_emxArray__common" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray__common');" target="_self"><font color="#1122aa">emxArray__common</font></a> *)c_R, loop_ub, (int32_T)<font color="#112266"><b>sizeof</b></font>
-<a name="120"><font color="#888888 "><i>  120   </i></font></a>                        (real_T), &amp;<a href="#var_u_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_u_emlrtRTEI');" target="_self"><font color="#1122aa">u_emlrtRTEI</font></a>);
+<a name="120"><font color="#888888 "><i>  120   </i></font></a>                        (real_T), &amp;<a href="#var_t_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_t_emlrtRTEI');" target="_self"><font color="#1122aa">t_emlrtRTEI</font></a>);
 <a name="121"><font color="#888888 "><i>  121   </i></font></a>      loop_ub = i46 - i45;
 <a name="122"><font color="#888888 "><i>  122   </i></font></a>      <font color="#112266"><b>for</b></font> (i46 = 0; i46 &lt; loop_ub; i46++) <b>{</b>
 <a name="123"><font color="#888888 "><i>  123   </i></font></a>        c_R-&gt;data[c_R-&gt;size[0] * i46] = R-&gt;data[i45 + i46];

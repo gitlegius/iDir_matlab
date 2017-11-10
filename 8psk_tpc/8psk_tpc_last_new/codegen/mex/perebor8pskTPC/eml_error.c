@@ -11,14 +11,14 @@
 #include "eml_error.h"
 
 /* Variable Definitions */
-static emlrtRTEInfo bb_emlrtRTEI = { 20, 5, "eml_error",
+static emlrtRTEInfo ab_emlrtRTEI = { 20, 5, "eml_error",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\eml\\eml_error.m"
 };
 
 /* Function Definitions */
 void b_eml_error(const emlrtStack *sp)
 {
-  emlrtErrorWithMessageIdR2012b(sp, &bb_emlrtRTEI,
+  emlrtErrorWithMessageIdR2012b(sp, &ab_emlrtRTEI,
     "Coder:toolbox:reshape_emptyReshapeLimit", 0);
 }
 
@@ -26,7 +26,7 @@ void eml_error(const emlrtStack *sp)
 {
   static const char_T varargin_1[4] = { 's', 'q', 'r', 't' };
 
-  emlrtErrorWithMessageIdR2012b(sp, &bb_emlrtRTEI,
+  emlrtErrorWithMessageIdR2012b(sp, &ab_emlrtRTEI,
     "Coder:toolbox:ElFunDomainError", 3, 4, 4, varargin_1);
 }
 

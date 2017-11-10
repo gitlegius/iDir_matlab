@@ -257,19 +257,19 @@ static emlrtBCInfo y_emlrtBCI = { -1, -1, 14, 47, "Star", "demapDecTest",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\demapDecTest.m",
   0 };
 
-static emlrtRSInfo ce_emlrtRSI = { 81, "eml_min_or_max",
+static emlrtRSInfo ae_emlrtRSI = { 81, "eml_min_or_max",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\eml\\eml_min_or_max.m"
 };
 
-static emlrtRSInfo de_emlrtRSI = { 38, "eml_min_or_max",
+static emlrtRSInfo be_emlrtRSI = { 38, "eml_min_or_max",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\eml\\eml_min_or_max.m"
 };
 
-static emlrtRSInfo ke_emlrtRSI = { 82, "eml_min_or_max",
+static emlrtRSInfo ie_emlrtRSI = { 82, "eml_min_or_max",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\eml\\eml_min_or_max.m"
 };
 
-static emlrtRSInfo le_emlrtRSI = { 41, "eml_min_or_max",
+static emlrtRSInfo je_emlrtRSI = { 41, "eml_min_or_max",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\eml\\eml_min_or_max.m"
 };
 
@@ -327,7 +327,7 @@ static int32_T div_s32_floor(const emlrtStack *sp, int32_T numerator, int32_T
 }
 
 void demapDecTest(const emlrtStack *sp, emxArray_creal_T
-                  *out_burst_complex_without_UWs, const real_T Star_data[],
+                  *out_burst_complex_without_UWs, const creal_T Star_data[],
                   const int32_T Star_size[2], real_T N, emxArray_real_T *LLR)
 {
   real_T sigma2;
@@ -559,9 +559,9 @@ void demapDecTest(const emlrtStack *sp, emxArray_creal_T
     n = out_burst_complex_without_UWs->size[0];
     for (i3 = 0; i3 < n; i3++) {
       b_out_burst_complex_without_UWs->data[i3].re =
-        out_burst_complex_without_UWs->data[i3].re - Star_data[ixstop];
+        out_burst_complex_without_UWs->data[i3].re - Star_data[ixstop].re;
       b_out_burst_complex_without_UWs->data[i3].im =
-        out_burst_complex_without_UWs->data[i3].im;
+        out_burst_complex_without_UWs->data[i3].im - Star_data[ixstop].im;
     }
 
     b_abs(sp, b_out_burst_complex_without_UWs, r7);
@@ -602,8 +602,8 @@ void demapDecTest(const emlrtStack *sp, emxArray_creal_T
 
     emlrtInitCharArrayR2013a(&c_st, 36, m0, cv0);
     emlrtAssign(&y, m0);
-    d_st.site = &de_emlrtRSI;
-    e_st.site = &le_emlrtRSI;
+    d_st.site = &be_emlrtRSI;
+    e_st.site = &je_emlrtRSI;
     b_error(&d_st, message(&e_st, y, &e_emlrtMCI), &f_emlrtMCI);
   }
 
@@ -617,8 +617,8 @@ void demapDecTest(const emlrtStack *sp, emxArray_creal_T
 
     emlrtInitCharArrayR2013a(&c_st, 39, m0, cv2);
     emlrtAssign(&b_y, m0);
-    d_st.site = &ce_emlrtRSI;
-    e_st.site = &ke_emlrtRSI;
+    d_st.site = &ae_emlrtRSI;
+    e_st.site = &ie_emlrtRSI;
     b_error(&d_st, message(&e_st, b_y, &g_emlrtMCI), &h_emlrtMCI);
   }
 

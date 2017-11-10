@@ -14,7 +14,7 @@
 #include "perebor8pskTPC_data.h"
 
 /* Variable Definitions */
-static emlrtRTEInfo u_emlrtRTEI = { 1, 28, "seq_search",
+static emlrtRTEInfo t_emlrtRTEI = { 1, 28, "seq_search",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\seq_search.m"
 };
 
@@ -51,7 +51,7 @@ void seq_search(const emlrtStack *sp, const emxArray_real_T *R, real_T *res,
   *position = -1.0;
   k = 1;
   b_k = 1;
-  emxInit_real_T(sp, &b_R, 2, &u_emlrtRTEI, true);
+  emxInit_real_T(sp, &b_R, 2, &t_emlrtRTEI, true);
   exitg2 = false;
   while ((!exitg2) && (b_k - 1 <= R->size[1] - 8)) {
     k = b_k;
@@ -70,7 +70,7 @@ void seq_search(const emlrtStack *sp, const emxArray_real_T *R, real_T *res,
     b_R->size[0] = 1;
     b_R->size[1] = i46 - i45;
     emxEnsureCapacity(sp, (emxArray__common *)b_R, loop_ub, (int32_T)sizeof
-                      (real_T), &u_emlrtRTEI);
+                      (real_T), &t_emlrtRTEI);
     loop_ub = i46 - i45;
     for (i46 = 0; i46 < loop_ub; i46++) {
       b_R->data[b_R->size[0] * i46] = R->data[i45 + i46];
@@ -93,7 +93,7 @@ void seq_search(const emlrtStack *sp, const emxArray_real_T *R, real_T *res,
     *res = 1.0;
 
     /* number of repetitions */
-    emxInit_real_T(sp, &c_R, 2, &u_emlrtRTEI, true);
+    emxInit_real_T(sp, &c_R, 2, &t_emlrtRTEI, true);
     exitg1 = false;
     while ((!exitg1) && ((((real_T)k + *res * 8.0) + 8.0) - 1.0 <= R->size[1]))
     {
@@ -117,7 +117,7 @@ void seq_search(const emlrtStack *sp, const emxArray_real_T *R, real_T *res,
       c_R->size[0] = 1;
       c_R->size[1] = i46 - i45;
       emxEnsureCapacity(sp, (emxArray__common *)c_R, loop_ub, (int32_T)sizeof
-                        (real_T), &u_emlrtRTEI);
+                        (real_T), &t_emlrtRTEI);
       loop_ub = i46 - i45;
       for (i46 = 0; i46 < loop_ub; i46++) {
         c_R->data[c_R->size[0] * i46] = R->data[i45 + i46];

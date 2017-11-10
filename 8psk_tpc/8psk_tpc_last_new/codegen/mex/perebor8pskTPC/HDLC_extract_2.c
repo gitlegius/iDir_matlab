@@ -15,35 +15,35 @@
 #include "perebor8pskTPC_data.h"
 
 /* Variable Definitions */
-static emlrtRSInfo ld_emlrtRSI = { 10, "HDLC_extract_2",
+static emlrtRSInfo kd_emlrtRSI = { 10, "HDLC_extract_2",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\HDLC_extract_2.m"
 };
 
-static emlrtRSInfo md_emlrtRSI = { 31, "HDLC_extract_2",
+static emlrtRSInfo ld_emlrtRSI = { 31, "HDLC_extract_2",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\HDLC_extract_2.m"
 };
 
-static emlrtRSInfo nd_emlrtRSI = { 47, "HDLC_extract_2",
+static emlrtRSInfo md_emlrtRSI = { 47, "HDLC_extract_2",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\HDLC_extract_2.m"
 };
 
-static emlrtRSInfo od_emlrtRSI = { 62, "HDLC_extract_2",
+static emlrtRSInfo nd_emlrtRSI = { 62, "HDLC_extract_2",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\HDLC_extract_2.m"
 };
 
-static emlrtMCInfo ab_emlrtMCI = { 13, 5, "HDLC_extract_2",
+static emlrtMCInfo v_emlrtMCI = { 13, 5, "HDLC_extract_2",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\HDLC_extract_2.m"
 };
 
-static emlrtRTEInfo w_emlrtRTEI = { 1, 29, "HDLC_extract_2",
+static emlrtRTEInfo v_emlrtRTEI = { 1, 29, "HDLC_extract_2",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\HDLC_extract_2.m"
 };
 
-static emlrtRTEInfo x_emlrtRTEI = { 38, 9, "HDLC_extract_2",
+static emlrtRTEInfo w_emlrtRTEI = { 38, 9, "HDLC_extract_2",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\HDLC_extract_2.m"
 };
 
-static emlrtRTEInfo y_emlrtRTEI = { 40, 9, "HDLC_extract_2",
+static emlrtRTEInfo x_emlrtRTEI = { 40, 9, "HDLC_extract_2",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\HDLC_extract_2.m"
 };
 
@@ -91,7 +91,7 @@ static emlrtBCInfo pc_emlrtBCI = { -1, -1, 42, 24, "RR", "HDLC_extract_2",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\HDLC_extract_2.m",
   0 };
 
-static emlrtRSInfo pd_emlrtRSI = { 13, "HDLC_extract_2",
+static emlrtRSInfo od_emlrtRSI = { 13, "HDLC_extract_2",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\HDLC_extract_2.m"
 };
 
@@ -103,12 +103,12 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
   real_T pos;
   real_T res;
   const mxArray *y;
-  static const int32_T iv38[2] = { 1, 8 };
+  static const int32_T iv37[2] = { 1, 8 };
 
-  const mxArray *m17;
-  char_T cv34[8];
+  const mxArray *m16;
+  char_T cv32[8];
   int32_T i;
-  static const char_T cv35[8] = { 'N', 'o', ' ', 'f', 'l', 'a', 'g', 's' };
+  static const char_T cv33[8] = { 'N', 'o', ' ', 'f', 'l', 'a', 'g', 's' };
 
   real_T pos_end;
   int32_T N;
@@ -119,25 +119,25 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
   emxArray_real_T *b_RR;
   emxArray_real_T *b_B;
   emxArray_real_T *c_B;
+  int32_T i54;
   int32_T i55;
   int32_T i56;
-  int32_T i57;
   boolean_T a2;
   boolean_T p;
   int32_T k;
   boolean_T exitg3;
-  static const int8_T iv39[8] = { 0, 1, 1, 1, 1, 1, 1, 0 };
+  static const int8_T iv38[8] = { 0, 1, 1, 1, 1, 1, 1, 0 };
 
   real_T pos_beg;
   int32_T kk;
   int32_T cs;
   boolean_T exitg2;
-  static const int8_T iv40[6] = { 1, 1, 1, 1, 1, 0 };
+  static const int8_T iv39[6] = { 1, 1, 1, 1, 1, 0 };
 
   int32_T xs;
   int8_T reg[16];
   boolean_T exitg1;
-  static const int8_T iv41[16] = { 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0,
+  static const int8_T iv40[16] = { 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0,
     0 };
 
   emlrtStack st;
@@ -148,22 +148,22 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
   ind_bad = 1.0;
 
   /*  for iDirect scan modul */
-  st.site = &ld_emlrtRSI;
+  st.site = &kd_emlrtRSI;
   seq_search(&st, R, &res, &pos);
 
   /*  0 1 1 1 1 1 1 0]);% 0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 0]); */
   /* [res,pos]=seq_search(R,[0 1 1 1 1 1 1 0  0 1 1 1 1 1 1 0 0 1 1 1 1 1 1 0]); */
   if (res == 0.0) {
     y = NULL;
-    m17 = emlrtCreateCharArray(2, iv38);
+    m16 = emlrtCreateCharArray(2, iv37);
     for (i = 0; i < 8; i++) {
-      cv34[i] = cv35[i];
+      cv32[i] = cv33[i];
     }
 
-    emlrtInitCharArrayR2013a(sp, 8, m17, cv34);
-    emlrtAssign(&y, m17);
-    st.site = &pd_emlrtRSI;
-    disp(&st, y, &ab_emlrtMCI);
+    emlrtInitCharArrayR2013a(sp, 8, m16, cv32);
+    emlrtAssign(&y, m16);
+    st.site = &od_emlrtRSI;
+    disp(&st, y, &v_emlrtMCI);
   } else {
     /* R=R(pos:end); */
     /* k=0; */
@@ -175,19 +175,19 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
 
     /* packets */
     /* while k<=N-7 */
-    emxInit_real_T(sp, &RR, 2, &x_emlrtRTEI, true);
-    emxInit_real_T(sp, &S, 2, &y_emlrtRTEI, true);
-    emxInit_real_T(sp, &B, 2, &w_emlrtRTEI, true);
-    emxInit_real_T(sp, &b_R, 2, &w_emlrtRTEI, true);
-    emxInit_real_T(sp, &b_RR, 2, &w_emlrtRTEI, true);
-    emxInit_real_T(sp, &b_B, 2, &w_emlrtRTEI, true);
-    emxInit_real_T(sp, &c_B, 2, &w_emlrtRTEI, true);
+    emxInit_real_T(sp, &RR, 2, &w_emlrtRTEI, true);
+    emxInit_real_T(sp, &S, 2, &x_emlrtRTEI, true);
+    emxInit_real_T(sp, &B, 2, &v_emlrtRTEI, true);
+    emxInit_real_T(sp, &b_R, 2, &v_emlrtRTEI, true);
+    emxInit_real_T(sp, &b_RR, 2, &v_emlrtRTEI, true);
+    emxInit_real_T(sp, &b_B, 2, &v_emlrtRTEI, true);
+    emxInit_real_T(sp, &c_B, 2, &v_emlrtRTEI, true);
     while (pos_end <= (real_T)N - 8.0) {
       pos_end++;
-      for (i55 = 0; i55 < 8; i55++) {
-        i56 = R->size[1];
-        i57 = (int32_T)(pos_end + (real_T)i55);
-        emlrtDynamicBoundsCheckFastR2012b(i57, 1, i56, &oc_emlrtBCI, sp);
+      for (i54 = 0; i54 < 8; i54++) {
+        i55 = R->size[1];
+        i56 = (int32_T)(pos_end + (real_T)i54);
+        emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &oc_emlrtBCI, sp);
       }
 
       a2 = false;
@@ -195,7 +195,7 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
       k = 0;
       exitg3 = false;
       while ((!exitg3) && (k < 8)) {
-        if (!(R->data[(int32_T)(pos_end + (real_T)k) - 1] == iv39[k])) {
+        if (!(R->data[(int32_T)(pos_end + (real_T)k) - 1] == iv38[k])) {
           p = false;
           exitg3 = true;
         } else {
@@ -214,29 +214,29 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
 
         /* disp(k) */
         if (pos_end > R->size[1]) {
+          i54 = 0;
           i55 = 0;
-          i56 = 0;
         } else {
-          i55 = R->size[1];
-          i56 = (int32_T)pos_end;
-          i55 = emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &nc_emlrtBCI, sp)
+          i54 = R->size[1];
+          i55 = (int32_T)pos_end;
+          i54 = emlrtDynamicBoundsCheckFastR2012b(i55, 1, i54, &nc_emlrtBCI, sp)
             - 1;
+          i55 = R->size[1];
           i56 = R->size[1];
-          i57 = R->size[1];
-          i56 = emlrtDynamicBoundsCheckFastR2012b(i57, 1, i56, &nc_emlrtBCI, sp);
+          i55 = emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &nc_emlrtBCI, sp);
         }
 
-        i57 = b_R->size[0] * b_R->size[1];
+        i56 = b_R->size[0] * b_R->size[1];
         b_R->size[0] = 1;
-        b_R->size[1] = i56 - i55;
-        emxEnsureCapacity(sp, (emxArray__common *)b_R, i57, (int32_T)sizeof
-                          (real_T), &w_emlrtRTEI);
-        i = i56 - i55;
-        for (i56 = 0; i56 < i; i56++) {
-          b_R->data[b_R->size[0] * i56] = R->data[i55 + i56];
+        b_R->size[1] = i55 - i54;
+        emxEnsureCapacity(sp, (emxArray__common *)b_R, i56, (int32_T)sizeof
+                          (real_T), &v_emlrtRTEI);
+        i = i55 - i54;
+        for (i55 = 0; i55 < i; i55++) {
+          b_R->data[b_R->size[0] * i55] = R->data[i54 + i55];
         }
 
-        st.site = &md_emlrtRSI;
+        st.site = &ld_emlrtRSI;
         seq_search(&st, b_R, &res, &pos);
         if (pos == -1.0) {
           pos_end = N;
@@ -245,38 +245,38 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
         }
 
         if (pos_beg > pos_end) {
+          i54 = 0;
           i55 = 0;
-          i56 = 0;
         } else {
-          i55 = R->size[1];
-          i56 = (int32_T)pos_beg;
-          i55 = emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &mc_emlrtBCI, sp)
+          i54 = R->size[1];
+          i55 = (int32_T)pos_beg;
+          i54 = emlrtDynamicBoundsCheckFastR2012b(i55, 1, i54, &mc_emlrtBCI, sp)
             - 1;
-          i56 = R->size[1];
-          i57 = (int32_T)pos_end;
-          i56 = emlrtDynamicBoundsCheckFastR2012b(i57, 1, i56, &mc_emlrtBCI, sp);
+          i55 = R->size[1];
+          i56 = (int32_T)pos_end;
+          i55 = emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &mc_emlrtBCI, sp);
         }
 
-        i57 = RR->size[0] * RR->size[1];
+        i56 = RR->size[0] * RR->size[1];
         RR->size[0] = 1;
-        RR->size[1] = i56 - i55;
-        emxEnsureCapacity(sp, (emxArray__common *)RR, i57, (int32_T)sizeof
-                          (real_T), &w_emlrtRTEI);
-        i = i56 - i55;
-        for (i57 = 0; i57 < i; i57++) {
-          RR->data[RR->size[0] * i57] = R->data[i55 + i57];
+        RR->size[1] = i55 - i54;
+        emxEnsureCapacity(sp, (emxArray__common *)RR, i56, (int32_T)sizeof
+                          (real_T), &v_emlrtRTEI);
+        i = i55 - i54;
+        for (i56 = 0; i56 < i; i56++) {
+          RR->data[RR->size[0] * i56] = R->data[i54 + i56];
         }
 
-        i57 = S->size[0] * S->size[1];
+        i56 = S->size[0] * S->size[1];
         S->size[0] = 1;
         S->size[1] = 0;
-        emxEnsureCapacity(sp, (emxArray__common *)S, i57, (int32_T)sizeof(real_T),
-                          &w_emlrtRTEI);
+        emxEnsureCapacity(sp, (emxArray__common *)S, i56, (int32_T)sizeof(real_T),
+                          &v_emlrtRTEI);
         kk = 0;
-        while (kk <= (i56 - i55) - 6) {
-          i = i56 - i55;
-          for (i57 = 0; i57 < 6; i57++) {
-            cs = (int32_T)((1.0 + (real_T)kk) + (real_T)i57);
+        while (kk <= (i55 - i54) - 6) {
+          i = i55 - i54;
+          for (i56 = 0; i56 < 6; i56++) {
+            cs = (int32_T)((1.0 + (real_T)kk) + (real_T)i56);
             emlrtDynamicBoundsCheckFastR2012b(cs, 1, i, &pc_emlrtBCI, sp);
           }
 
@@ -285,7 +285,7 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
           k = 0;
           exitg2 = false;
           while ((!exitg2) && (k < 6)) {
-            if (!(RR->data[(int32_T)((uint32_T)k + kk)] == iv40[k])) {
+            if (!(RR->data[(int32_T)((uint32_T)k + kk)] == iv39[k])) {
               p = false;
               exitg2 = true;
             } else {
@@ -300,10 +300,10 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
 
           if (a2) {
             xs = S->size[1];
-            i57 = S->size[0] * S->size[1];
+            i56 = S->size[0] * S->size[1];
             S->size[1] = xs + 1;
-            emxEnsureCapacity(sp, (emxArray__common *)S, i57, (int32_T)sizeof
-                              (real_T), &w_emlrtRTEI);
+            emxEnsureCapacity(sp, (emxArray__common *)S, i56, (int32_T)sizeof
+                              (real_T), &v_emlrtRTEI);
             S->data[xs] = (1.0 + (real_T)kk) + 5.0;
           }
 
@@ -312,124 +312,124 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
         }
 
         if (!(S->size[1] == 0)) {
-          st.site = &nd_emlrtRSI;
-          i57 = B->size[0] * B->size[1];
+          st.site = &md_emlrtRSI;
+          i56 = B->size[0] * B->size[1];
           B->size[0] = 1;
           B->size[1] = RR->size[1];
-          emxEnsureCapacity(&st, (emxArray__common *)B, i57, (int32_T)sizeof
-                            (real_T), &w_emlrtRTEI);
+          emxEnsureCapacity(&st, (emxArray__common *)B, i56, (int32_T)sizeof
+                            (real_T), &v_emlrtRTEI);
           i = RR->size[0] * RR->size[1];
-          for (i57 = 0; i57 < i; i57++) {
-            B->data[i57] = RR->data[i57];
+          for (i56 = 0; i56 < i; i56++) {
+            B->data[i56] = RR->data[i56];
           }
 
           /* 16.08.01 */
-          i57 = i56 - i55;
-          emlrtDynamicBoundsCheckFastR2012b(1, 1, i57, &gc_emlrtBCI, &st);
-          i55 = i56 - i55;
-          i56 = (int32_T)(S->data[0] - 1.0);
-          emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &gc_emlrtBCI, &st);
+          i56 = i55 - i54;
+          emlrtDynamicBoundsCheckFastR2012b(1, 1, i56, &gc_emlrtBCI, &st);
+          i54 = i55 - i54;
+          i55 = (int32_T)(S->data[0] - 1.0);
+          emlrtDynamicBoundsCheckFastR2012b(i55, 1, i54, &gc_emlrtBCI, &st);
           i = (int32_T)S->data[0] - 2;
-          i55 = b_RR->size[0] * b_RR->size[1];
+          i54 = b_RR->size[0] * b_RR->size[1];
           b_RR->size[0] = 1;
           b_RR->size[1] = i + 1;
-          emxEnsureCapacity(&st, (emxArray__common *)b_RR, i55, (int32_T)sizeof
-                            (real_T), &w_emlrtRTEI);
-          for (i55 = 0; i55 <= i; i55++) {
-            b_RR->data[b_RR->size[0] * i55] = RR->data[i55];
+          emxEnsureCapacity(&st, (emxArray__common *)b_RR, i54, (int32_T)sizeof
+                            (real_T), &v_emlrtRTEI);
+          for (i54 = 0; i54 <= i; i54++) {
+            b_RR->data[b_RR->size[0] * i54] = RR->data[i54];
           }
 
-          i55 = RR->size[0] * RR->size[1];
+          i54 = RR->size[0] * RR->size[1];
           RR->size[0] = 1;
           RR->size[1] = b_RR->size[1];
-          emxEnsureCapacity(&st, (emxArray__common *)RR, i55, (int32_T)sizeof
-                            (real_T), &w_emlrtRTEI);
+          emxEnsureCapacity(&st, (emxArray__common *)RR, i54, (int32_T)sizeof
+                            (real_T), &v_emlrtRTEI);
           i = b_RR->size[1];
-          for (i55 = 0; i55 < i; i55++) {
-            RR->data[RR->size[0] * i55] = b_RR->data[b_RR->size[0] * i55];
+          for (i54 = 0; i54 < i; i54++) {
+            RR->data[RR->size[0] * i54] = b_RR->data[b_RR->size[0] * i54];
           }
 
           k = 0;
           while (k <= S->size[1] - 2) {
-            i55 = S->size[1];
-            i56 = k + 1;
-            emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &hc_emlrtBCI, &st);
-            i55 = S->size[1];
-            i56 = (int32_T)((1.0 + (real_T)k) + 1.0);
-            emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &ic_emlrtBCI, &st);
+            i54 = S->size[1];
+            i55 = k + 1;
+            emlrtDynamicBoundsCheckFastR2012b(i55, 1, i54, &hc_emlrtBCI, &st);
+            i54 = S->size[1];
+            i55 = (int32_T)((1.0 + (real_T)k) + 1.0);
+            emlrtDynamicBoundsCheckFastR2012b(i55, 1, i54, &ic_emlrtBCI, &st);
             if (S->data[k] + 1.0 > S->data[1 + k] - 1.0) {
+              i54 = 1;
               i55 = 1;
-              i56 = 1;
             } else {
-              i55 = B->size[1];
-              i56 = (int32_T)((uint32_T)S->data[k] + 1U);
-              i55 = emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &jc_emlrtBCI,
+              i54 = B->size[1];
+              i55 = (int32_T)((uint32_T)S->data[k] + 1U);
+              i54 = emlrtDynamicBoundsCheckFastR2012b(i55, 1, i54, &jc_emlrtBCI,
                 &st);
-              i56 = B->size[1];
-              i57 = (int32_T)S->data[1 + k] - 1;
-              i56 = emlrtDynamicBoundsCheckFastR2012b(i57, 1, i56, &jc_emlrtBCI,
+              i55 = B->size[1];
+              i56 = (int32_T)S->data[1 + k] - 1;
+              i55 = emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &jc_emlrtBCI,
                 &st) + 1;
             }
 
             xs = RR->size[1];
-            cs = i56 - i55;
-            i57 = RR->size[0] * RR->size[1];
+            cs = i55 - i54;
+            i56 = RR->size[0] * RR->size[1];
             RR->size[1] = xs + cs;
-            emxEnsureCapacity(&st, (emxArray__common *)RR, i57, (int32_T)sizeof
-                              (real_T), &w_emlrtRTEI);
-            i57 = c_B->size[0] * c_B->size[1];
+            emxEnsureCapacity(&st, (emxArray__common *)RR, i56, (int32_T)sizeof
+                              (real_T), &v_emlrtRTEI);
+            i56 = c_B->size[0] * c_B->size[1];
             c_B->size[0] = 1;
-            c_B->size[1] = i56 - i55;
-            emxEnsureCapacity(&st, (emxArray__common *)c_B, i57, (int32_T)sizeof
-                              (real_T), &w_emlrtRTEI);
-            i = i56 - i55;
-            for (i56 = 0; i56 < i; i56++) {
-              c_B->data[c_B->size[0] * i56] = B->data[(i55 + i56) - 1];
+            c_B->size[1] = i55 - i54;
+            emxEnsureCapacity(&st, (emxArray__common *)c_B, i56, (int32_T)sizeof
+                              (real_T), &v_emlrtRTEI);
+            i = i55 - i54;
+            for (i55 = 0; i55 < i; i55++) {
+              c_B->data[c_B->size[0] * i55] = B->data[(i54 + i55) - 1];
             }
 
-            for (i55 = 0; i55 < cs; i55++) {
-              RR->data[xs + i55] = c_B->data[i55];
+            for (i54 = 0; i54 < cs; i54++) {
+              RR->data[xs + i54] = c_B->data[i54];
             }
 
             k++;
             emlrtBreakCheckFastR2012b(emlrtBreakCheckR2012bFlagVar, &st);
           }
 
+          i54 = S->size[1];
           i55 = S->size[1];
-          i56 = S->size[1];
-          emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &kc_emlrtBCI, &st);
+          emlrtDynamicBoundsCheckFastR2012b(i55, 1, i54, &kc_emlrtBCI, &st);
           if ((uint32_T)S->data[S->size[1] - 1] + 1U > (uint32_T)B->size[1]) {
+            i54 = 1;
             i55 = 1;
-            i56 = 1;
           } else {
-            i55 = B->size[1];
-            i56 = (int32_T)((uint32_T)S->data[S->size[1] - 1] + 1U);
-            i55 = emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &lc_emlrtBCI,
+            i54 = B->size[1];
+            i55 = (int32_T)((uint32_T)S->data[S->size[1] - 1] + 1U);
+            i54 = emlrtDynamicBoundsCheckFastR2012b(i55, 1, i54, &lc_emlrtBCI,
               &st);
+            i55 = B->size[1];
             i56 = B->size[1];
-            i57 = B->size[1];
-            i56 = emlrtDynamicBoundsCheckFastR2012b(i57, 1, i56, &lc_emlrtBCI,
+            i55 = emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &lc_emlrtBCI,
               &st) + 1;
           }
 
           xs = RR->size[1];
-          cs = i56 - i55;
-          i57 = RR->size[0] * RR->size[1];
+          cs = i55 - i54;
+          i56 = RR->size[0] * RR->size[1];
           RR->size[1] = xs + cs;
-          emxEnsureCapacity(&st, (emxArray__common *)RR, i57, (int32_T)sizeof
-                            (real_T), &w_emlrtRTEI);
-          i57 = b_B->size[0] * b_B->size[1];
+          emxEnsureCapacity(&st, (emxArray__common *)RR, i56, (int32_T)sizeof
+                            (real_T), &v_emlrtRTEI);
+          i56 = b_B->size[0] * b_B->size[1];
           b_B->size[0] = 1;
-          b_B->size[1] = i56 - i55;
-          emxEnsureCapacity(&st, (emxArray__common *)b_B, i57, (int32_T)sizeof
-                            (real_T), &w_emlrtRTEI);
-          i = i56 - i55;
-          for (i56 = 0; i56 < i; i56++) {
-            b_B->data[b_B->size[0] * i56] = B->data[(i55 + i56) - 1];
+          b_B->size[1] = i55 - i54;
+          emxEnsureCapacity(&st, (emxArray__common *)b_B, i56, (int32_T)sizeof
+                            (real_T), &v_emlrtRTEI);
+          i = i55 - i54;
+          for (i55 = 0; i55 < i; i55++) {
+            b_B->data[b_B->size[0] * i55] = B->data[(i54 + i55) - 1];
           }
 
-          for (i55 = 0; i55 < cs; i55++) {
-            RR->data[xs + i55] = b_B->data[i55];
+          for (i54 = 0; i54 < cs; i54++) {
+            RR->data[xs + i54] = b_B->data[i54];
           }
         }
 
@@ -444,16 +444,16 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
         /*              end */
         /*               */
         /*          end */
-        st.site = &od_emlrtRSI;
-        for (i55 = 0; i55 < 16; i55++) {
-          reg[i55] = 1;
+        st.site = &nd_emlrtRSI;
+        for (i54 = 0; i54 < 16; i54++) {
+          reg[i54] = 1;
         }
 
         k = 0;
         while (k <= RR->size[1] - 1) {
-          i55 = RR->size[1];
-          i56 = k + 1;
-          emlrtDynamicBoundsCheckFastR2012b(i56, 1, i55, &fc_emlrtBCI, &st);
+          i54 = RR->size[1];
+          i55 = k + 1;
+          emlrtDynamicBoundsCheckFastR2012b(i55, 1, i54, &fc_emlrtBCI, &st);
           a2 = (((RR->data[k] != 0.0) ^ (reg[15] != 0)) != 0);
           for (i = 0; i < 15; i++) {
             reg[15 - i] = reg[14 - i];
@@ -472,7 +472,7 @@ real_T HDLC_extract_2(const emlrtStack *sp, const emxArray_real_T *R, real_T
         k = 0;
         exitg1 = false;
         while ((!exitg1) && (k < 16)) {
-          if (!(reg[k] == iv41[k])) {
+          if (!(reg[k] == iv40[k])) {
             p = false;
             exitg1 = true;
           } else {

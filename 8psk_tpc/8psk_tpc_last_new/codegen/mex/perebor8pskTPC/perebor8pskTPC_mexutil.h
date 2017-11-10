@@ -21,7 +21,6 @@
 #include "perebor8pskTPC_types.h"
 
 /* Function Declarations */
-extern const mxArray *b_emlrt_marshallOut(const real_T u);
 extern void b_error(const emlrtStack *sp, const mxArray *b, emlrtMCInfo
                     *location);
 extern void disp(const emlrtStack *sp, const mxArray *b, emlrtMCInfo *location);

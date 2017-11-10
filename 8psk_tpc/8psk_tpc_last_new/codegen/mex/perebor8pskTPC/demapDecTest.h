@@ -22,7 +22,7 @@
 
 /* Function Declarations */
 extern void demapDecTest(const emlrtStack *sp, emxArray_creal_T
-  *out_burst_complex_without_UWs, const real_T Star_data[], const int32_T
+  *out_burst_complex_without_UWs, const creal_T Star_data[], const int32_T
   Star_size[2], real_T N, emxArray_real_T *LLR);
 
 #endif

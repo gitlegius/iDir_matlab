@@ -224,7 +224,7 @@
 <a name="212"><font color="#888888 "><i>  212   </i></font></a>  int32_T vlen;
 <a name="213"><font color="#888888 "><i>  213   </i></font></a>  real_T vwork_data[128];
 <a name="214"><font color="#888888 "><i>  214   </i></font></a>  int32_T vwork_size[1];
-<a name="215"><font color="#888888 "><i>  215   </i></font></a>  uint8_T uv2[2];
+<a name="215"><font color="#888888 "><i>  215   </i></font></a>  uint8_T uv3[2];
 <a name="216"><font color="#888888 "><i>  216   </i></font></a>  int32_T ix;
 <a name="217"><font color="#888888 "><i>  217   </i></font></a>  int32_T k;
 <a name="218"><font color="#888888 "><i>  218   </i></font></a>  int32_T iidx_size[1];
@@ -233,11 +233,11 @@
 <a name="221"><font color="#888888 "><i>  221   </i></font></a>  vwork_size[0] = (uint8_T)x_size[1];
 <a name="222"><font color="#888888 "><i>  222   </i></font></a>  <font color="#112266"><b>for</b></font> (ix = 0; ix &lt; 2; ix++) <b>{</b>
 <a name="223"><font color="#888888 "><i>  223   </i></font></a>    y_size[ix] = x_size[ix];
-<a name="224"><font color="#888888 "><i>  224   </i></font></a>    uv2[ix] = (uint8_T)x_size[ix];
+<a name="224"><font color="#888888 "><i>  224   </i></font></a>    uv3[ix] = (uint8_T)x_size[ix];
 <a name="225"><font color="#888888 "><i>  225   </i></font></a>  <b>}</b>
 <a name="226"><font color="#888888 "><i>  226   </i></font></a>
 <a name="227"><font color="#888888 "><i>  227   </i></font></a>  idx_size[0] = 1;
-<a name="228"><font color="#888888 "><i>  228   </i></font></a>  idx_size[1] = uv2[1];
+<a name="228"><font color="#888888 "><i>  228   </i></font></a>  idx_size[1] = uv3[1];
 <a name="229"><font color="#888888 "><i>  229   </i></font></a>  ix = 0;
 <a name="230"><font color="#888888 "><i>  230   </i></font></a>  <font color="#112266"><b>for</b></font> (k = 0; k &lt;= vlen; k++) <b>{</b>
 <a name="231"><font color="#888888 "><i>  231   </i></font></a>    vwork_data[k] = x_data[ix];

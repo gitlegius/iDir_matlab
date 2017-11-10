@@ -357,7 +357,7 @@
     <param.AutoInferUseUnboundedSize>false</param.AutoInferUseUnboundedSize>
     <param.AutoInferVariableSizeThreshold>1024</param.AutoInferVariableSizeThreshold>
     <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
-    <param.AnnotationChecksum>4173716672</param.AnnotationChecksum>
+    <param.AnnotationChecksum>3086442164</param.AnnotationChecksum>
     <param.mex.outputfile>perebor8pskTPC_mex</param.mex.outputfile>
     <param.grt.outputfile>perebor8pskTPC</param.grt.outputfile>
     <param.artifact>option.target.artifact.mex</param.artifact>
@@ -458,7 +458,7 @@
       <param.DefaultFixedPointSignedness />
     </unset>
     <fileset.entrypoints>
-      <file custom-data-expanded="true" value="${PROJECT_ROOT}\perebor8pskTPC.m">
+      <file custom-data-expanded="false" value="${PROJECT_ROOT}\perebor8pskTPC.m">
         <Inputs fileName="perebor8pskTPC.m" functionName="perebor8pskTPC">
           <Input Name="out_burst_complex_without_UWs">
             <Class>double</Class>
@@ -490,7 +490,7 @@
             <Value />
             <InitialValue />
             <UserDefined>true</UserDefined>
-            <Complex>false</Complex>
+            <Complex>true</Complex>
           </Input>
           <Input Name="frame_dec_len">
             <Class>double</Class>

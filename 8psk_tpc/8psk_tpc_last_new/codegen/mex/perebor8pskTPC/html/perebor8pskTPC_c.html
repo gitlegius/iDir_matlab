@@ -77,7 +77,7 @@
 <a name="65"><font color="#888888 "><i>   65   </i></font></a>  <font color="#1122ff">&quot;D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\perebor8pskTPC.m&quot;</font>
 <a name="66"><font color="#888888 "><i>   66   </i></font></a><b>}</b>;
 <a name="67"><font color="#888888 "><i>   67   </i></font></a>
-<a name="68"><font color="#888888 "><i>   68   </i></font></a><font color="#112266"><b>static</b></font> emlrtRTEInfo <a name="var_ab_emlrtRTEI">ab_emlrtRTEI</a> = <b>{</b> 15, 1, <font color="#1122ff">&quot;perebor8pskTPC&quot;</font>,
+<a name="68"><font color="#888888 "><i>   68   </i></font></a><font color="#112266"><b>static</b></font> emlrtRTEInfo <a name="var_y_emlrtRTEI">y_emlrtRTEI</a> = <b>{</b> 15, 1, <font color="#1122ff">&quot;perebor8pskTPC&quot;</font>,
 <a name="69"><font color="#888888 "><i>   69   </i></font></a>  <font color="#1122ff">&quot;D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\perebor8pskTPC.m&quot;</font>
 <a name="70"><font color="#888888 "><i>   70   </i></font></a><b>}</b>;
 <a name="71"><font color="#888888 "><i>   71   </i></font></a>
@@ -149,7 +149,7 @@
 <a name="137"><font color="#888888 "><i>  137   </i></font></a><font color="#117755"><i>/* Function Definitions */</i></font>
 <a name="138"><font color="#888888 "><i>  138   </i></font></a><font color="#112266"><b>void</b></font> <a name="fcn_perebor8pskTPC">perebor8pskTPC</a>(<font color="#112266"><b>const</b></font> emlrtStack *sp, <font color="#112266"><b>const</b></font> <a href="perebor8pskTPC_types_h.html#type_emxArray_creal_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_emxArray_creal_T');" target="_self"><font color="#1122aa">emxArray_creal_T</font></a>
 <a name="139"><font color="#888888 "><i>  139   </i></font></a>                    *out_burst_complex_without_UWs, real_T data_symb_len, real_T
-<a name="140"><font color="#888888 "><i>  140   </i></font></a>                    num_packet_per_burst, <font color="#112266"><b>const</b></font> real_T Star_data[], <font color="#112266"><b>const</b></font>
+<a name="140"><font color="#888888 "><i>  140   </i></font></a>                    num_packet_per_burst, <font color="#112266"><b>const</b></font> creal_T Star_data[], <font color="#112266"><b>const</b></font>
 <a name="141"><font color="#888888 "><i>  141   </i></font></a>                    int32_T Star_size[2], real_T frame_dec_len, real_T
 <a name="142"><font color="#888888 "><i>  142   </i></font></a>                    packet_dec_len, real_T c_r, real_T flag_FDMA, boolean_T
 <a name="143"><font color="#888888 "><i>  143   </i></font></a>                    *flag_ok, real_T *ind_good, real_T *ind_bad, real_T
@@ -233,7 +233,7 @@
 <a name="221"><font color="#888888 "><i>  221   </i></font></a>  tmp_start_pos = 1.0;
 <a name="222"><font color="#888888 "><i>  222   </i></font></a>  tmp_start_pos_in = 1.0;
 <a name="223"><font color="#888888 "><i>  223   </i></font></a>  emlrtForLoopVectorCheckR2012b(1.0, 1.0, num_packet_per_burst, mxDOUBLE_CLASS,
-<a name="224"><font color="#888888 "><i>  224   </i></font></a>                                (int32_T)num_packet_per_burst, &amp;<a href="#var_ab_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_ab_emlrtRTEI');" target="_self"><font color="#1122aa">ab_emlrtRTEI</font></a>, sp);
+<a name="224"><font color="#888888 "><i>  224   </i></font></a>                                (int32_T)num_packet_per_burst, &amp;<a href="#var_y_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_y_emlrtRTEI');" target="_self"><font color="#1122aa">y_emlrtRTEI</font></a>, sp);
 <a name="225"><font color="#888888 "><i>  225   </i></font></a>  kk = 0;
 <a name="226"><font color="#888888 "><i>  226   </i></font></a>  <a href="perebor8pskTPC_emxutil_c.html#fcn_b_emxInit_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_b_emxInit_real_T');" target="_self"><font color="#1122aa">b_emxInit_real_T</font></a>(sp, &amp;out_data_soft_now, 1, &amp;<a href="#var_d_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_d_emlrtRTEI');" target="_self"><font color="#1122aa">d_emlrtRTEI</font></a>, true);
 <a name="227"><font color="#888888 "><i>  227   </i></font></a>  <a href="perebor8pskTPC_emxutil_c.html#fcn_emxInit_real_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_emxInit_real_T');" target="_self"><font color="#1122aa">emxInit_real_T</font></a>(sp, &amp;bit_scrm, 2, &amp;<a href="#var_e_emlrtRTEI" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_e_emlrtRTEI');" target="_self"><font color="#1122aa">e_emlrtRTEI</font></a>, true);

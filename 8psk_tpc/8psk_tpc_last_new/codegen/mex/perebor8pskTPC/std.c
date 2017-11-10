@@ -35,19 +35,19 @@ static emlrtMCInfo d_emlrtMCI = { 20, 19, "var",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\datafun\\var.m"
 };
 
-static emlrtRSInfo ae_emlrtRSI = { 20, "var",
+static emlrtRSInfo xd_emlrtRSI = { 20, "var",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\datafun\\var.m"
 };
 
-static emlrtRSInfo be_emlrtRSI = { 17, "var",
+static emlrtRSInfo yd_emlrtRSI = { 17, "var",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\datafun\\var.m"
 };
 
-static emlrtRSInfo ie_emlrtRSI = { 23, "var",
+static emlrtRSInfo ge_emlrtRSI = { 23, "var",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\datafun\\var.m"
 };
 
-static emlrtRSInfo je_emlrtRSI = { 18, "var",
+static emlrtRSInfo he_emlrtRSI = { 18, "var",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\datafun\\var.m"
 };
 
@@ -131,8 +131,8 @@ real_T b_std(const emlrtStack *sp, const emxArray_creal_T *varargin_1)
 
     emlrtInitCharArrayR2013a(&st, 30, m1, cv4);
     emlrtAssign(&b_y, m1);
-    b_st.site = &be_emlrtRSI;
-    c_st.site = &je_emlrtRSI;
+    b_st.site = &yd_emlrtRSI;
+    c_st.site = &he_emlrtRSI;
     b_error(&b_st, message(&c_st, b_y, &emlrtMCI), &b_emlrtMCI);
   }
 
@@ -152,8 +152,8 @@ real_T b_std(const emlrtStack *sp, const emxArray_creal_T *varargin_1)
 
     emlrtInitCharArrayR2013a(&st, 36, m1, cv6);
     emlrtAssign(&c_y, m1);
-    b_st.site = &ae_emlrtRSI;
-    c_st.site = &ie_emlrtRSI;
+    b_st.site = &xd_emlrtRSI;
+    c_st.site = &ge_emlrtRSI;
     b_error(&b_st, message(&c_st, c_y, &c_emlrtMCI), &d_emlrtMCI);
   }
 

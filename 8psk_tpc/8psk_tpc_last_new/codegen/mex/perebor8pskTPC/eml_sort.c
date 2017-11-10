@@ -212,7 +212,7 @@ void eml_sort(const real_T x_data[], const int32_T x_size[2], real_T y_data[],
   int32_T vlen;
   real_T vwork_data[128];
   int32_T vwork_size[1];
-  uint8_T uv2[2];
+  uint8_T uv3[2];
   int32_T ix;
   int32_T k;
   int32_T iidx_size[1];
@@ -221,11 +221,11 @@ void eml_sort(const real_T x_data[], const int32_T x_size[2], real_T y_data[],
   vwork_size[0] = (uint8_T)x_size[1];
   for (ix = 0; ix < 2; ix++) {
     y_size[ix] = x_size[ix];
-    uv2[ix] = (uint8_T)x_size[ix];
+    uv3[ix] = (uint8_T)x_size[ix];
   }
 
   idx_size[0] = 1;
-  idx_size[1] = uv2[1];
+  idx_size[1] = uv3[1];
   ix = 0;
   for (k = 0; k <= vlen; k++) {
     vwork_data[k] = x_data[ix];

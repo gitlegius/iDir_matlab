@@ -7,7 +7,7 @@ if ~isdir(log_dir)
     mkdir(log_dir);
 end
 path_name_log_str = [log_dir '\8psk_tpc_perebor_test_log.txt'];
-% delete(path_name_log_str);
+delete(path_name_log_str);
 %%
 load out_burst_complex_test_8psk;
 
@@ -39,7 +39,7 @@ pi_div_4 = pi/4;
 V=perms(0:7);
 tic
 
-for ind_perm=1:40320%40320
+parfor ind_perm=1:40320
     % for ind_perm=13407%40320
     %     disp(ind_perm)
     
@@ -54,7 +54,7 @@ for ind_perm=1:40320%40320
             
             Star = Star_*exp(sign_tmp*1i*k*(pi_div_4));%*(0.9239 + 0.3827i); % DVB_RCS
             
-            [flag_ok,ind_good,ind_bad,ind_good_,ind_bad_,num_iter,num_iter_] = perebor8pskTPC(out_burst_complex_without_UWs,data_symb_len,num_packet_per_burst,Star,frame_dec_len,packet_dec_len,c_r,flag_FDMA);
+            [flag_ok,ind_good,ind_bad,ind_good_,ind_bad_,num_iter,num_iter_] = perebor8pskTPC_mex(out_burst_complex_without_UWs,data_symb_len,num_packet_per_burst,Star,frame_dec_len,packet_dec_len,c_r,flag_FDMA);
             if flag_ok
                 fid_log = fopen(path_name_log_str,'a');
                 

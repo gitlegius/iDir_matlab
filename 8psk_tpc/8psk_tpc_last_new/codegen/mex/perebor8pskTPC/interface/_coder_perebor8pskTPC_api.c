@@ -10,32 +10,31 @@
 #include "perebor8pskTPC.h"
 #include "_coder_perebor8pskTPC_api.h"
 #include "perebor8pskTPC_emxutil.h"
-#include "hamming_decode_soft.h"
-#include "perebor8pskTPC_mexutil.h"
 
 /* Variable Definitions */
-static emlrtRTEInfo v_emlrtRTEI = { 1, 1, "_coder_perebor8pskTPC_api", "" };
+static emlrtRTEInfo u_emlrtRTEI = { 1, 1, "_coder_perebor8pskTPC_api", "" };
 
 /* Function Declarations */
 static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   emlrtMsgIdentifier *parentId, emxArray_creal_T *y);
+static const mxArray *b_emlrt_marshallOut(const real_T u);
 static real_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *data_symb_len, const char_T *identifier);
-static const mxArray *c_emlrt_marshallOut(const boolean_T u);
 static real_T d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   emlrtMsgIdentifier *parentId);
 static void e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *Star, const
-  char_T *identifier, real_T **y_data, int32_T y_size[2]);
+  char_T *identifier, creal_T y_data[], int32_T y_size[2]);
 static void emlrt_marshallIn(const emlrtStack *sp, const mxArray
   *out_burst_complex_without_UWs, const char_T *identifier, emxArray_creal_T *y);
+static const mxArray *emlrt_marshallOut(const boolean_T u);
 static void f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
-  emlrtMsgIdentifier *parentId, real_T **y_data, int32_T y_size[2]);
+  emlrtMsgIdentifier *parentId, creal_T y_data[], int32_T y_size[2]);
 static void g_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId, emxArray_creal_T *ret);
 static real_T h_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId);
 static void i_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
-  emlrtMsgIdentifier *msgId, real_T **ret_data, int32_T ret_size[2]);
+  emlrtMsgIdentifier *msgId, creal_T ret_data[], int32_T ret_size[2]);
 
 /* Function Definitions */
 static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
@@ -43,6 +42,16 @@ static void b_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
 {
   g_emlrt_marshallIn(sp, emlrtAlias(u), parentId, y);
   emlrtDestroyArray(&u);
+}
+
+static const mxArray *b_emlrt_marshallOut(const real_T u)
+{
+  const mxArray *y;
+  const mxArray *m11;
+  y = NULL;
+  m11 = emlrtCreateDoubleScalar(u);
+  emlrtAssign(&y, m11);
+  return y;
 }
 
 static real_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
@@ -57,16 +66,6 @@ static real_T c_emlrt_marshallIn(const emlrtStack *sp, const mxArray
   return y;
 }
 
-static const mxArray *c_emlrt_marshallOut(const boolean_T u)
-{
-  const mxArray *y;
-  const mxArray *m12;
-  y = NULL;
-  m12 = emlrtCreateLogicalScalar(u);
-  emlrtAssign(&y, m12);
-  return y;
-}
-
 static real_T d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
   emlrtMsgIdentifier *parentId)
 {
@@ -77,7 +76,7 @@ static real_T d_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
 }
 
 static void e_emlrt_marshallIn(const emlrtStack *sp, const mxArray *Star, const
-  char_T *identifier, real_T **y_data, int32_T y_size[2])
+  char_T *identifier, creal_T y_data[], int32_T y_size[2])
 {
   emlrtMsgIdentifier thisId;
   thisId.fIdentifier = identifier;
@@ -96,8 +95,18 @@ static void emlrt_marshallIn(const emlrtStack *sp, const mxArray
   emlrtDestroyArray(&out_burst_complex_without_UWs);
 }
 
+static const mxArray *emlrt_marshallOut(const boolean_T u)
+{
+  const mxArray *y;
+  const mxArray *m10;
+  y = NULL;
+  m10 = emlrtCreateLogicalScalar(u);
+  emlrtAssign(&y, m10);
+  return y;
+}
+
 static void f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
-  emlrtMsgIdentifier *parentId, real_T **y_data, int32_T y_size[2])
+  emlrtMsgIdentifier *parentId, creal_T y_data[], int32_T y_size[2])
 {
   i_emlrt_marshallIn(sp, emlrtAlias(u), parentId, y_data, y_size);
   emlrtDestroyArray(&u);
@@ -106,16 +115,16 @@ static void f_emlrt_marshallIn(const emlrtStack *sp, const mxArray *u, const
 static void g_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
   emlrtMsgIdentifier *msgId, emxArray_creal_T *ret)
 {
-  int32_T iv32[1];
+  int32_T iv31[1];
   boolean_T bv0[1];
-  int32_T iv33[1];
-  int32_T i48;
-  iv32[0] = 1048576;
+  int32_T iv32[1];
+  int32_T i47;
+  iv31[0] = 1048576;
   bv0[0] = true;
-  emlrtCheckVsBuiltInR2012b(sp, msgId, src, "double", true, 1U, iv32, bv0, iv33);
-  i48 = ret->size[0];
-  ret->size[0] = iv33[0];
-  emxEnsureCapacity(sp, (emxArray__common *)ret, i48, (int32_T)sizeof(creal_T),
+  emlrtCheckVsBuiltInR2012b(sp, msgId, src, "double", true, 1U, iv31, bv0, iv32);
+  i47 = ret->size[0];
+  ret->size[0] = iv32[0];
+  emxEnsureCapacity(sp, (emxArray__common *)ret, i47, (int32_T)sizeof(creal_T),
                     (emlrtRTEInfo *)NULL);
   emlrtImportArrayR2011b(src, ret->data, 8, true);
   emlrtDestroyArray(&src);
@@ -132,23 +141,23 @@ static real_T h_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
 }
 
 static void i_emlrt_marshallIn(const emlrtStack *sp, const mxArray *src, const
-  emlrtMsgIdentifier *msgId, real_T **ret_data, int32_T ret_size[2])
+  emlrtMsgIdentifier *msgId, creal_T ret_data[], int32_T ret_size[2])
 {
-  int32_T iv34[2];
+  int32_T iv33[2];
   boolean_T bv1[2];
-  int32_T i49;
+  int32_T i48;
   static const boolean_T bv2[2] = { false, true };
 
-  int32_T iv35[2];
-  for (i49 = 0; i49 < 2; i49++) {
-    iv34[i49] = 1 + 7 * i49;
-    bv1[i49] = bv2[i49];
+  int32_T iv34[2];
+  for (i48 = 0; i48 < 2; i48++) {
+    iv33[i48] = 1 + 7 * i48;
+    bv1[i48] = bv2[i48];
   }
 
-  emlrtCheckVsBuiltInR2012b(sp, msgId, src, "double", false, 2U, iv34, bv1, iv35);
-  ret_size[0] = iv35[0];
-  ret_size[1] = iv35[1];
-  *ret_data = (real_T *)mxGetData(src);
+  emlrtCheckVsBuiltInR2012b(sp, msgId, src, "double", true, 2U, iv33, bv1, iv34);
+  ret_size[0] = iv34[0];
+  ret_size[1] = iv34[1];
+  emlrtImportArrayR2011b(src, (void *)ret_data, 8, true);
   emlrtDestroyArray(&src);
 }
 
@@ -158,7 +167,7 @@ void perebor8pskTPC_api(const mxArray * const prhs[8], const mxArray *plhs[7])
   real_T data_symb_len;
   real_T num_packet_per_burst;
   int32_T Star_size[2];
-  real_T (*Star_data)[8];
+  creal_T Star_data[8];
   real_T frame_dec_len;
   real_T packet_dec_len;
   real_T c_r;
@@ -174,7 +183,7 @@ void perebor8pskTPC_api(const mxArray * const prhs[8], const mxArray *plhs[7])
 
   st.tls = emlrtRootTLSGlobal;
   emlrtHeapReferenceStackEnterFcnR2012b(&st);
-  emxInit_creal_T(&st, &out_burst_complex_without_UWs, 1, &v_emlrtRTEI, true);
+  emxInit_creal_T(&st, &out_burst_complex_without_UWs, 1, &u_emlrtRTEI, true);
 
   /* Marshall function inputs */
   emlrt_marshallIn(&st, emlrtAliasP(prhs[0]), "out_burst_complex_without_UWs",
@@ -182,8 +191,7 @@ void perebor8pskTPC_api(const mxArray * const prhs[8], const mxArray *plhs[7])
   data_symb_len = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[1]), "data_symb_len");
   num_packet_per_burst = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[2]),
     "num_packet_per_burst");
-  e_emlrt_marshallIn(&st, emlrtAlias(prhs[3]), "Star", (real_T **)&Star_data,
-                     Star_size);
+  e_emlrt_marshallIn(&st, emlrtAliasP(prhs[3]), "Star", Star_data, Star_size);
   frame_dec_len = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[4]), "frame_dec_len");
   packet_dec_len = c_emlrt_marshallIn(&st, emlrtAliasP(prhs[5]),
     "packet_dec_len");
@@ -192,12 +200,12 @@ void perebor8pskTPC_api(const mxArray * const prhs[8], const mxArray *plhs[7])
 
   /* Invoke the target function */
   perebor8pskTPC(&st, out_burst_complex_without_UWs, data_symb_len,
-                 num_packet_per_burst, *Star_data, Star_size, frame_dec_len,
+                 num_packet_per_burst, Star_data, Star_size, frame_dec_len,
                  packet_dec_len, c_r, flag_FDMA, &flag_ok, &ind_good, &ind_bad,
                  &ind_good_, &ind_bad_, &num_iter, &num_iter_);
 
   /* Marshall function outputs */
-  plhs[0] = c_emlrt_marshallOut(flag_ok);
+  plhs[0] = emlrt_marshallOut(flag_ok);
   plhs[1] = b_emlrt_marshallOut(ind_good);
   plhs[2] = b_emlrt_marshallOut(ind_bad);
   plhs[3] = b_emlrt_marshallOut(ind_good_);

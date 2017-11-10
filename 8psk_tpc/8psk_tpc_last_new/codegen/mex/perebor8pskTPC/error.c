@@ -17,7 +17,7 @@ static emlrtMCInfo l_emlrtMCI = { 16, 1, "error",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\lang\\error.m"
 };
 
-static emlrtRSInfo xd_emlrtRSI = { 16, "error",
+static emlrtRSInfo ud_emlrtRSI = { 16, "error",
   "C:\\Program Files\\MATLAB\\R2014b\\toolbox\\eml\\lib\\matlab\\lang\\error.m"
 };
 
@@ -44,7 +44,7 @@ void error(const emlrtStack *sp)
 
   emlrtInitCharArrayR2013a(sp, 24, m5, cv18);
   emlrtAssign(&y, m5);
-  st.site = &xd_emlrtRSI;
+  st.site = &ud_emlrtRSI;
   b_error(&st, y, &l_emlrtMCI);
 }
 

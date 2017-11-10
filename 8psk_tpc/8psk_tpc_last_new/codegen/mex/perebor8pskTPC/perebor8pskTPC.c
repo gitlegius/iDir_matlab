@@ -65,7 +65,7 @@ static emlrtRTEInfo e_emlrtRTEI = { 30, 9, "perebor8pskTPC",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\perebor8pskTPC.m"
 };
 
-static emlrtRTEInfo ab_emlrtRTEI = { 15, 1, "perebor8pskTPC",
+static emlrtRTEInfo y_emlrtRTEI = { 15, 1, "perebor8pskTPC",
   "D:\\projects_matlab\\1\\iDirect\\test_corr\\iDir_matlab\\8psk_tpc\\8psk_tpc_last_new\\perebor8pskTPC.m"
 };
 
@@ -137,7 +137,7 @@ static emlrtDCInfo g_emlrtDCI = { 9, 27, "perebor8pskTPC",
 /* Function Definitions */
 void perebor8pskTPC(const emlrtStack *sp, const emxArray_creal_T
                     *out_burst_complex_without_UWs, real_T data_symb_len, real_T
-                    num_packet_per_burst, const real_T Star_data[], const
+                    num_packet_per_burst, const creal_T Star_data[], const
                     int32_T Star_size[2], real_T frame_dec_len, real_T
                     packet_dec_len, real_T c_r, real_T flag_FDMA, boolean_T
                     *flag_ok, real_T *ind_good, real_T *ind_bad, real_T
@@ -221,7 +221,7 @@ void perebor8pskTPC(const emlrtStack *sp, const emxArray_creal_T
   tmp_start_pos = 1.0;
   tmp_start_pos_in = 1.0;
   emlrtForLoopVectorCheckR2012b(1.0, 1.0, num_packet_per_burst, mxDOUBLE_CLASS,
-                                (int32_T)num_packet_per_burst, &ab_emlrtRTEI, sp);
+                                (int32_T)num_packet_per_burst, &y_emlrtRTEI, sp);
   kk = 0;
   b_emxInit_real_T(sp, &out_data_soft_now, 1, &d_emlrtRTEI, true);
   emxInit_real_T(sp, &bit_scrm, 2, &e_emlrtRTEI, true);

@@ -45,14 +45,14 @@
 <a name="33"><font color="#888888 "><i>   33   </i></font></a><font color="#112266"><b>void</b></font> <a name="fcn_c_abs">c_abs</a>(<font color="#112266"><b>const</b></font> real_T x_data[], <font color="#112266"><b>const</b></font> int32_T x_size[2], real_T y_data[],
 <a name="34"><font color="#888888 "><i>   34   </i></font></a>           int32_T y_size[2])
 <a name="35"><font color="#888888 "><i>   35   </i></font></a><b>{</b>
-<a name="36"><font color="#888888 "><i>   36   </i></font></a>  uint8_T uv1[2];
+<a name="36"><font color="#888888 "><i>   36   </i></font></a>  uint8_T uv2[2];
 <a name="37"><font color="#888888 "><i>   37   </i></font></a>  int32_T k;
 <a name="38"><font color="#888888 "><i>   38   </i></font></a>  <font color="#112266"><b>for</b></font> (k = 0; k &lt; 2; k++) <b>{</b>
-<a name="39"><font color="#888888 "><i>   39   </i></font></a>    uv1[k] = (uint8_T)x_size[k];
+<a name="39"><font color="#888888 "><i>   39   </i></font></a>    uv2[k] = (uint8_T)x_size[k];
 <a name="40"><font color="#888888 "><i>   40   </i></font></a>  <b>}</b>
 <a name="41"><font color="#888888 "><i>   41   </i></font></a>
 <a name="42"><font color="#888888 "><i>   42   </i></font></a>  y_size[0] = 1;
-<a name="43"><font color="#888888 "><i>   43   </i></font></a>  y_size[1] = uv1[1];
+<a name="43"><font color="#888888 "><i>   43   </i></font></a>  y_size[1] = uv2[1];
 <a name="44"><font color="#888888 "><i>   44   </i></font></a>  <font color="#112266"><b>for</b></font> (k = 0; k &lt; x_size[1]; k++) <b>{</b>
 <a name="45"><font color="#888888 "><i>   45   </i></font></a>    y_data[k] = muDoubleScalarAbs(x_data[k]);
 <a name="46"><font color="#888888 "><i>   46   </i></font></a>  <b>}</b>

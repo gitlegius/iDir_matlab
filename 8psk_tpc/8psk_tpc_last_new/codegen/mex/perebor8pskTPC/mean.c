@@ -81,7 +81,7 @@ real_T mean(const emlrtStack *sp, const emxArray_real_T *x)
 
     emlrtInitCharArrayR2013a(&st, 36, m3, cv12);
     emlrtAssign(&b_y, m3);
-    b_st.site = &ud_emlrtRSI;
+    b_st.site = &sd_emlrtRSI;
     b_error(&b_st, message(&b_st, b_y, &k_emlrtMCI), &k_emlrtMCI);
   }
 
@@ -97,7 +97,7 @@ real_T mean(const emlrtStack *sp, const emxArray_real_T *x)
 
     emlrtInitCharArrayR2013a(&st, 37, m3, cv14);
     emlrtAssign(&c_y, m3);
-    b_st.site = &ud_emlrtRSI;
+    b_st.site = &sd_emlrtRSI;
     b_error(&b_st, message(&b_st, c_y, &k_emlrtMCI), &k_emlrtMCI);
   }
 
@@ -113,7 +113,7 @@ real_T mean(const emlrtStack *sp, const emxArray_real_T *x)
 
     emlrtInitCharArrayR2013a(&st, 37, m3, cv14);
     emlrtAssign(&d_y, m3);
-    b_st.site = &ud_emlrtRSI;
+    b_st.site = &sd_emlrtRSI;
     b_error(&b_st, message(&b_st, d_y, &k_emlrtMCI), &k_emlrtMCI);
   }
 
