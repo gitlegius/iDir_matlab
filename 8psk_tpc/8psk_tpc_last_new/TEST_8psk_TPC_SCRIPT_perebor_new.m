@@ -39,7 +39,7 @@ pi_div_4 = pi/4;
 V=perms(0:7);
 tic
 
-thr_num_good = 10;
+thr_num_good = 5;
 
 parfor ind_perm=1:40320
     % for ind_perm=13407%40320
